@@ -14,5 +14,5 @@ word3 = w2v['IT']
 word_base = word1 + word2 - word3
 words = w2v.similar_by_vector(word_base, topn=5)
 for word in words:
-  print(word);
+  print(word)
 

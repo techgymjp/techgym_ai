@@ -11,5 +11,5 @@ w2v = KeyedVectors.load_word2vec_format(MODEL_FILENAME, binary=True)
 word1 = w2v['テクノロジー']
 words = w2v.similar_by_vector(word1, topn=5)
 for word in words:
-  print(word);
+  print(word)
 

@@ -13,5 +13,5 @@ word2 = w2v['金融']
 word_base = word1 + word2
 words = w2v.similar_by_vector(word_base, topn=5)
 for word in words:
-  print(word);
+  print(word)
 
