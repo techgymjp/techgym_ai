@@ -14,12 +14,3 @@ true_set = df_test["target"]
 logi_pred_set = pd.read_csv("my_logi_one.csv")
 tree_pred_set = pd.read_csv("my_tree_one.csv")
 
-print("ロジスティック回帰の評価")
-print("accuracy", accuracy_score(true_set, logi_pred_set["target"]))
-print("precision", precision_score(true_set, logi_pred_set["target"]))
-print("recall", recall_score(true_set, logi_pred_set["target"]))
-
-print("決定木の評価")
-print("accuracy", accuracy_score(true_set, tree_pred_set["target"]))
-print("precision", precision_score(true_set, tree_pred_set["target"]))
-print("recall", recall_score(true_set, tree_pred_set["target"]))

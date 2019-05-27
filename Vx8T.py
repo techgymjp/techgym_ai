@@ -7,7 +7,6 @@ import numpy as np
 
 # graph
 from matplotlib import pylab as plt
-import seaborn as sns
 
 # グラフを横長にする
 from matplotlib.pylab import rcParams
