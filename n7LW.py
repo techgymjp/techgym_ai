@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-N-6A,6B
+#AI-TECHGYM-N-6B
 
 import pandas as pd
 
@@ -59,7 +59,3 @@ display(pd.merge(hand_df1, hand_df2, how = 'left',on = 'id'))
 
 #右外部結合する(hand_df2のデータを全て取り出し、hand_df1のデータがあるときは結合する)
 display(pd.merge(hand_df1, hand_df2, how = 'right',on = 'id'))
-
-#縦結合する
-concat_data = pd.concat([hand_df1,hand_df2])
-display(concat_data)

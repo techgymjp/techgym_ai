@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-N-6A,6B
+#AI-TECHGYM-N-6B
 
 import pandas as pd
 

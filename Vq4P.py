@@ -1,4 +1,4 @@
-#AI-TECHGYM-N-6A
+#AI-TECHGYM-N-6C
 
 import pandas as pd
 
@@ -44,3 +44,10 @@ hand_df2.columns.names = ['feature']
 id2 = ['100','101','102','103','110','111','106','113','108','114']
 hand_df2['id'] = id2
 hand_df2.set_index('id',inplace=True)
+
+#必要であれば表示して確認する
+#display(hand_df2)
+
+#縦結合する
+concat_data = pd.concat([hand_df1,hand_df2])
+display(concat_data)
