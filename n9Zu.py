@@ -1,6 +1,5 @@
 # word2vec データ読み込み
 from gensim.models import KeyedVectors
-import numpy as np
 import pandas as pd
 import json
 
