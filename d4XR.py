@@ -15,8 +15,8 @@ house_test = pd.read_csv("./test.csv")
 #display(house_test)
 
 #NaNデータ
-#house_train.isnull().sum()
-#house_test.isnull().sum()
+#print(house_train.isnull().sum())
+#print(house_test.isnull().sum())
 
 #データ型の確認
 #house_train.info()
