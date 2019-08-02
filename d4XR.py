@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-N-21
+#AI-TECHGYM-N-21
 
 # ライブラリのインポート
 import pandas as pd
@@ -44,8 +44,8 @@ X_test = house_test[["OverallQual"]].values
 # 学習済みのモデルから予測した結果をセット
 y_test_pred = slr.predict(X_test)
 
-#予測した結果を出力
-display(y_test_pred)
+#必要であれば予測した結果を出力
+#display(y_test_pred)
 
 # df_testに SalePrice カラムを追加し、学習済みのモデルから予測した結果をセット
 house_test['SalePrice'] = y_test_pred
