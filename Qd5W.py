@@ -1,8 +1,7 @@
-﻿#AI-TECHGYM-N-6A
+#AI-TECHGYM-N-6A
 
 import pandas as pd
 
-num = ['0','1','2','3','4','5','6','7','8','9']
 feature1 =['gender','age','win','lose','draw']
 
 hand = {'性別'  :['男性','男性','女性','男性','女性','男性','女性','女性','男性','男性'],
