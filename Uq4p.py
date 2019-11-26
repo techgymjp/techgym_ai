@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-N-7
+#AI-TECHGYM-N-7
 
 import pandas as pd
 
@@ -43,4 +43,16 @@ hand_df2.index.names = ['NUM']
 hand_df2.columns = [feature]
 hand_df2.columns.names = ['feature']
 hand_df2 = hand_df1.append(hand_df2)
+
+#必要であれば表示して確認する
+#display(hand_df2)
+
+#重複した行のみ表示
+
+
+#重複した行を削除
+
+
+
+#NaNがないこと
 
