@@ -47,3 +47,7 @@ hand_df2.set_index('id',inplace=True)
 
 #必要であれば表示して確認する
 #display(hand_df2)
+
+#縦結合する
+concat_data = 
+display(concat_data)
