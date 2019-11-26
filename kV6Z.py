@@ -34,7 +34,7 @@ REG = linear_model.LinearRegression()
 #相関係数のヒートマップを表示
 plt.figure(figsize=(8, 8))
 
-plt.savefig('wine_data_heatmap.png')
+
 
 #相関係数の並び替え
 
