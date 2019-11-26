@@ -41,6 +41,6 @@ plt.savefig('wine_data_heatmap.png')
 
 wine_corr_list = pd.DataFrame(wine_corr_sort)
 
-#総関係数上位を表示
+#総関係数上位を表示　13成分の同一ペアの相関係数が1.0になることに注意
 ra_low, ra_hi = 14, 25
 
