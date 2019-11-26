@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-N-9B
+#AI-TECHGYM-N-9B
 
 import pandas as pd
 
@@ -12,3 +12,15 @@ hand1 = {'id'  :['100','101','102','103','104','105','106','107','108','109'],
          'win'  :[20,21, 4,60,14,10,12,19,12,14],
          'lose'  :[24,15,35, 3,35,29, 2,12,11,43],
          'draw':[15,40,34,29,14, 4,22,17,12,10]}
+
+hand_df1 = pd.DataFrame(hand1)
+
+#年齢別のデータフレーム
+
+    #必要なら年代を表示
+    #display('ID :{0}'.format(group))
+     display(sub_df)
+
+# 列に複数の関数を適応
+functions = ['count','mean','max','min']
+grouped_hand = 
