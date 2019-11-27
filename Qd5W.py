@@ -12,7 +12,7 @@ hand = {'性別'  :['男性','男性','女性','男性','女性','男性','女�
 hand_df1 = pd.DataFrame(hand)
 
 #index,columnsをつける
-hand_df1.columns = [feature1]
+hand_df1.columns = feature1
 hand_df1.columns.names = ['feature']
 
 #必要であれば表示して確認する
@@ -33,7 +33,7 @@ hand2 = {'住所'  :['東京','大阪','名古屋','北海道','東京','鹿児�
     '仕事'  :['IT','医療','弁護士','事務','事務','弁護士','IT','IT','IT','事務']}
 
 hand_df2 = pd.DataFrame(hand2)
-hand_df2.columns = [feature2]
+hand_df2.columns = feature2
 hand_df2.columns.names = ['feature']
 
 #必要であれば表示して確認する
