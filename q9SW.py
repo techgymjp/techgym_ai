@@ -28,7 +28,7 @@ house_corr =
 #display(house_corr)
 
 #相関係数の上位14個を表示
-display(house_corr.sort_values('SalePrice', ascending=False)['SalePrice'].head(15))
+display(              ('SalePrice', ascending=False)['SalePrice'].head(15))
 
 #回帰分析用のデータフレーム
 df_col = ['SalePrice','OverallQual' , 'GrLivArea' , 'GarageCars' , 'GarageArea',
@@ -48,10 +48,10 @@ slr =
 
 
 # 回帰係数
-
+print('回帰係数：{0}'.format())
 
 # 切片(直線とy軸との交点)を出力
-
+print('切片: {0}'.format())
 
 #統計的データ分析と可視化
 

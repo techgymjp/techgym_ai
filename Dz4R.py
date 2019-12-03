@@ -18,7 +18,7 @@ hand_df1 = pd.DataFrame(hand1)
 #分割の粒度
 
 
-# ビン分割の実施
+#ビン分割の実施
 hand_df1_draw_bins = 
 display(hand_df1_draw_bins)
 

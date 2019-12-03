@@ -37,8 +37,8 @@ plt.figure(figsize=(8, 8))
 
 
 #相関係数の並び替え
-
-
+wine_corr =
+wine_corr_sort =
 wine_corr_list = pd.DataFrame(wine_corr_sort)
 
 #総関係数上位を表示　13成分の同一ペアの相関係数が1.0になることに注意

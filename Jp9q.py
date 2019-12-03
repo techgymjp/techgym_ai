@@ -22,6 +22,7 @@ hand_df = pd.DataFrame(hand)
 
 
 #indexを変更して先頭三行の表示
+new_index=['e','b','a','d','c','f','g','h','i','j']
 hand_df2 = 
 
 

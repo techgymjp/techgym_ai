@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 
 #データの読み込み
 data = "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"
-
+wine =
 
 txt= "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.names"
-
+urllib.request.urlretrieve(txt, './wine.names')
 
 #説明文の表示(必要であれば表示)
 #f = open("./wine.names","r")
@@ -41,8 +41,8 @@ display(wine)
 
 
 #x軸とy軸のそれぞれのラベル
-plt.xlabel('')
-plt.ylabel('')
+plt.xlabel('Alcohol')
+plt.ylabel('[%]')
 
 #要約統計量
 

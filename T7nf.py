@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-N-15
+#AI-TECHGYM-N-15
 
 import pandas as pd
 import urllib
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 #データの読み込み
 data = "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"
-wine = pd.read_csv(data)
+wine = pd.read_csv(data,header=None)
 
 txt= "http://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.names"
 urllib.request.urlretrieve(txt, './wine.names')
@@ -48,6 +48,7 @@ plt.ylabel('[%]')
 display(wine['Alcohol'].describe())
 
 #統計的データ分析と可視化
+#['Alcohol', 'Malic_acid', 'Ash', 'Total_phenols', 'Color_intensity']
 sns.pairplot(wine[['Alcohol', 'Malic_acid', 'Ash', 'Total_phenols', 'Color_intensity']])
 plt.grid(True)
 

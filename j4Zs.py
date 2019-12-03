@@ -14,7 +14,7 @@ data = "https://archive.ics.uci.edu/ml/machine-learning-databases/tic-tac-toe/ti
 TTT = 
 
 txt= "https://archive.ics.uci.edu/ml/machine-learning-databases/tic-tac-toe/tic-tac-toe.names"
-
+urllib.request.urlretrieve(txt, './tic-tac-toe.names')
 
 #説明文の表示(必要であれば表示)
 #f = open("./tic-tac-toe.names","r")

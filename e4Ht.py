@@ -22,7 +22,7 @@ balloons.columns = columns_name
 #カテゴリーごとの集計
 
 
-# グラフの大きさを指定
+#グラフの大きさを指定
 plt.figure(figsize=(10, 10))
 
 #colorのヒストグラムを表示

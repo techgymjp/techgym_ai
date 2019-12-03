@@ -35,7 +35,7 @@ wine.columns = columns_name
 
 
 # 線形回帰インスタンス
-REG = linear_model.LinearRegression()
+REG =
 
 p=1 #グラフ
 attribute = ['Malic_acid', 'Ash', 'Total_phenols', 'Color_intensity']
@@ -77,6 +77,4 @@ for w in attribute:
 
 #分析結果
 display("もっとも相関があるのは「アルコール度数」と「色の濃さ」である")
-display("相関係数は",sp.stats.pearsonr(wine['Alcohol'], wine['Color_intensity']))
-
-
+display("相関係数は",(wine['Alcohol'], wine['Color_intensity']))

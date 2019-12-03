@@ -18,10 +18,10 @@ hand_df1 = pd.DataFrame(hand1)
 #データの確認
 #display(hand_df1)
 
-# サイズ情報
+#サイズ情報
 
 
-# ageを軸に、winの平均値を求める
+#ageを軸に、winの平均値を求める
 
 
 #軸は複数設定することもできます

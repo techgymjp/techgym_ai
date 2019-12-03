@@ -46,8 +46,8 @@ k_train =
 k_test = 
 
 # 決定係数を表示
-print('決定係数(train):{:.3f}'.format(k_train))
-print('決定係数(test):{:.3f}'.format(k_test))
+print('決定係数(train):{:.3f}'.format())
+print('決定係数(test):{:.3f}'.format())
  
 # 回帰係数と切片を表示
 print('回帰係数{}'.format())
