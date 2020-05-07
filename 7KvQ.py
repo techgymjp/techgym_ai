@@ -41,7 +41,7 @@ plt.show()
 
 #無作為抽出のサンプルサイズ20にして標本平均
 #同じ作業を1000回実施する
-num = 5
+num = 20
 sample_means = [np.random.choice(scores, num).mean()
                 for _ in range(10000)]
 
