@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-1-8-A-4
+#AI-TECHGYM-1-8-A-4
 #自然言語処理
 
 from janome.tokenizer import Tokenizer
@@ -6,7 +6,7 @@ from janome.tokenizer import Tokenizer
 #形態素解析のオブジェクト
 text = Tokenizer()
 
-tokens = t.tokenize('すもももももももものうち', wakati=True)
+tokens = text.tokenize('すもももももももものうち', wakati=True)
 print(tokens)
 
 #txtファイルからデータの読み込み
