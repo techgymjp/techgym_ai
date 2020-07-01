@@ -1,0 +1,1 @@
+{"attributes": {"place": "kobe"}, "labels": [{"category": "ship", "box2d": {"x1": 465, "y1": 3, "x2": 631, "y2": 85}}, {"category": "ship", "box2d": {"x1": 305, "y1": 23, "x2": 460, "y2": 88}}, {"category": "ship", "box2d": {"x1": 294, "y1": 0, "x2": 440, "y2": 43}}, {"category": "ship", "box2d": {"x1": 56, "y1": 76, "x2": 160, "y2": 132}}]}

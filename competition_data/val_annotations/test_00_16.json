@@ -1,0 +1,1 @@
+{"attributes": {"place": "odaiba"}, "labels": [{"category": "ship", "box2d": {"x1": 351, "y1": 738, "x2": 394, "y2": 799}}, {"category": "ship", "box2d": {"x1": 645, "y1": 961, "x2": 677, "y2": 989}}, {"category": "ship", "box2d": {"x1": 686, "y1": 906, "x2": 727, "y2": 935}}, {"category": "ship", "box2d": {"x1": 809, "y1": 747, "x2": 897, "y2": 818}}]}
