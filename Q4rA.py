@@ -1,4 +1,4 @@
-#Tech-Gym-13-27-A
+#Tech-Gym-13-27-Q
 #リアルタイム画像認識
 #
 
@@ -56,3 +56,4 @@ for item in result:
 
 # 書き出し
 cv2.imwrite("./sample_img/sample_dog2.jpg", imgcv)
+
