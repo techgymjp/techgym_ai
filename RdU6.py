@@ -55,7 +55,7 @@ def plot_prob(X, x_min, x_max):
 def N(mu, sigma):
     x_range = [- np.inf, np.inf]
     def f(x):
-        return 1 / np.sqrt(2 * np.pi * sigma**2) *\
+        return 1 / (np.sqrt(2 * np.pi) * sigma) *\
                     np.exp(-(x-mu)**2 / (2 * sigma**2))
     return x_range, f
 

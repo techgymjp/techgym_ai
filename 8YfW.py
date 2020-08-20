@@ -43,7 +43,7 @@ print("英語：偏差の平均{0:.3f}".format(dev_m))
 
 #偏差の平均
 dev_am = np.mean(another_deviation)
-print("数学：偏差の平均{0:.3f}".format(dev_m))
+print("数学：偏差の平均{0:.3f}".format(dev_am))
 
 #分散
 print("分散",np.mean(deviation ** 2))
