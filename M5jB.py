@@ -6,7 +6,7 @@ from keras.layers import Dense
 
 # モデルの定義
 model = Sequential()
-model.add(Dense(10 , input_shape = (51, )))
-model.add(Dense(10))
-model.add(Dense(1))
+model.add(Dense(10 , input_shape = (10, )))
+model.add(Dense(20))
+model.add(Dense(30))
 
