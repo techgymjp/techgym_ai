@@ -17,7 +17,7 @@ class BaseLayer:
 #インスタンス
 base = BaseLayer()
 
-base.test_set_value(1,1,3,4)
+base.test_set_value(0,0,3,4)
 base.update(0.2)
 base.update(0.2)
 base.update(0.2)

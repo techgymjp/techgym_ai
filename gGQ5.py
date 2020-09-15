@@ -178,7 +178,7 @@ batch_size = 32 #バッチサイズ
 # 手書き文字訓練データ
 digits_data = datasets.load_digits()
 x_train = np.asarray(digits_data.data)
-x_train = x_train / 15*2-1  # -1~1の範囲に調整
+x_train = (x_train - 8.0) / 8  # -1~1の範囲に調整
 t_train = digits_data.target
 
 # 学習
