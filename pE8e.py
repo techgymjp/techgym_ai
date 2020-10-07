@@ -1,8 +1,8 @@
 #Tech-Gym-13-12-Q
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿
 
-#•K—v‚Èƒ‰ƒCƒuƒ‰ƒŠ
+#å¿…è¦ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒª
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,44 +14,44 @@ from keras.models import Sequential
 from keras.utils.np_utils import to_categorical
 from keras.layers import Dense, Activation
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
-#MNISTƒf[ƒ^
+#MNISTãƒ‡ãƒ¼ã‚¿
 from keras.datasets import mnist
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-#s—ñ‚Ì‘å‚«‚³‚ğŠm”F
+#è¡Œåˆ—ã®å¤§ãã•ã‚’ç¢ºèª
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)  
 
-#‚Í‚¶‚ß‚Ì6000ŒÂ‚ğ1ŸŒ³s—ñ‚ÌŒ`‚É•ÏX
+#ã¯ã˜ã‚ã®6000å€‹ã‚’1æ¬¡å…ƒè¡Œåˆ—ã®å½¢ã«å¤‰æ›´
 
-#s—ñ‚Ì‘å‚«‚³‚ğŠm”F
+#è¡Œåˆ—ã®å¤§ãã•ã‚’ç¢ºèª
 
-#ƒ‚ƒfƒ‹‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬
+#ãƒ¢ãƒ‡ãƒ«ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆ
 
-# “ü—Íƒ†ƒjƒbƒg”‚Í784A1‚Â–Ú‚Ì‘SŒ‹‡‘w‚Ìo—Íƒ†ƒjƒbƒg”‚Í256
+# å…¥åŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯784ã€1ã¤ç›®ã®å…¨çµåˆå±¤ã®å‡ºåŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯256
 
-# 2‚Â–Ú‚Ì‘SŒ‹‡‘w‚Ìo—Íƒ†ƒjƒbƒg”‚Í128
+# 2ã¤ç›®ã®å…¨çµåˆå±¤ã®å‡ºåŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯128
 
-# 3‚Â–Ú‚Ì‘SŒ‹‡‘wio—Í‘wj‚Ìo—Íƒ†ƒjƒbƒg”‚Í10
+# 3ã¤ç›®ã®å…¨çµåˆå±¤ï¼ˆå‡ºåŠ›å±¤ï¼‰ã®å‡ºåŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯10
 
-#ƒ‚ƒfƒ‹‚Ì¶¬
+#ãƒ¢ãƒ‡ãƒ«ã®ç”Ÿæˆ
 
-#ŠwK
+#å­¦ç¿’
 
-#accAval_acc‚Ìƒvƒƒbƒg
+#accã€val_accã®ãƒ—ãƒ­ãƒƒãƒˆ
 
-#ƒ‚ƒfƒ‹\‘¢
+#ãƒ¢ãƒ‡ãƒ«æ§‹é€ 
 
-#ƒ‚ƒfƒ‹•]‰¿
+#ãƒ¢ãƒ‡ãƒ«è©•ä¾¡
 
-#¬‡s—ñ
+#æ··åˆè¡Œåˆ—
 
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 
 
 

@@ -1,22 +1,22 @@
 #tech-gym-13-2-Q
-#�Z���T�[�f�[�^����
+#センサーデータ分析
 
-#�K�v�Ȃ��̂��C���|�[�g����
+#必要なものをインポートする
 import pandas as pd
 
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-# �l���d�͂̓d�͏���ʃf�[�^��ǂݍ���
+# 四国電力の電力消費量データを読み込み
 
-# �摜�̃T�C�Y��ݒ肷��
+# 画像のサイズを設定する
 plt.figure(figsize=(12, 12))
 
-# ���n��O���t����
+# 時系列グラフ生成
 
-#�d�͏���ʂ̎��ԕω�
+#電力消費量の時間変化
 
-# �q�X�g�O��������
+# ヒストグラム生成
 
-# �O���t
+# グラフ
 plt.show()

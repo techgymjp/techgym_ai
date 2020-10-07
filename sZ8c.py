@@ -1,45 +1,45 @@
 #tech-gym-13-1-A
-#ƒZƒ“ƒT[ƒf[ƒ^•ªÍ
+#ã‚»ãƒ³ã‚µãƒ¼ãƒ‡ãƒ¼ã‚¿åˆ†æ
 
-#•K—v‚È‚à‚Ì‚ğƒCƒ“ƒ|[ƒg‚·‚é
+#å¿…è¦ãªã‚‚ã®ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹
 import pandas as pd
 
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-#‹CÛƒf[ƒ^‚ğ“Ç‚İ‚İ
+#æ°—è±¡ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
 tmp = pd.read_csv(
     u'takamatsu.csv',
-    parse_dates={'date_hour': ["“ú"]},
+    parse_dates={'date_hour': ["æ—¥æ™‚"]},
     index_col = "date_hour",
-    na_values="~"
+    na_values="Ã—"
 )
 
-# uv‚Ì—ñ‚Íg‚í‚È‚¢‚Ì‚Åíœ‚·‚é
-del tmp[""]
+# ã€Œæ™‚ã€ã®åˆ—ã¯ä½¿ã‚ãªã„ã®ã§å‰Šé™¤ã™ã‚‹
+del tmp["æ™‚"]
 
-# —ñ‚Ì–¼‘O‚ğ‰pŒê‚É•Ï‚¦‚é
+# åˆ—ã®åå‰ã‚’è‹±èªã«å¤‰ãˆã‚‹
 columns = {
-    "~…—Ê(mm)": "rain",
-    "‹C‰·()": "temperature",
-    "¼“x(“)": "humid",
+    "é™æ°´é‡(mm)": "rain",
+    "æ°—æ¸©(â„ƒ)": "temperature",
+    "æ¹¿åº¦(ï¼…)": "humid",
 }
 tmp.rename(columns=columns, inplace=True)
 
-#Œ‡‘¹’l‚ğ0‚É‚·‚é
+#æ¬ æå€¤ã‚’0ã«ã™ã‚‹
 tmp = tmp.fillna(0)
 
-# ƒqƒXƒgƒOƒ‰ƒ€¶¬
+# ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ç”Ÿæˆ
 delta = tmp.index - pd.to_datetime('2012/07/01 00:00:00')
 tmp['time'] = delta.days + delta.seconds / 3600.0 / 24.0
 
-#•K—v‚É‰‚¶‚Ä•\¦
+#å¿…è¦ã«å¿œã˜ã¦è¡¨ç¤º
 #display(tmp)
 
-# ‰æ‘œƒTƒCƒY‚ğİ’è‚·‚é
+# ç”»åƒã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
 plt.figure(figsize=(20, 20))
 
-# •\¦
+# è¡¨ç¤º
 plt.subplot(3, 1, 1)
 plt.scatter(tmp['time'], tmp['temperature'], s=0.1)
 plt.xlabel('days from 2012/7/1')
@@ -56,5 +56,5 @@ plt.xlabel('days from 2012/7/1')
 plt.ylabel('rain(mm)')
 
 
-# ƒOƒ‰ƒt•\¦
+# ã‚°ãƒ©ãƒ•è¡¨ç¤º
 plt.show()

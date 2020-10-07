@@ -1,28 +1,28 @@
 #Tech-Gym-13-8-Q
-#�f�B�[�v���[�j���O�摜���ފ�:CNN
+#ディープラーニング画像分類器:CNN
 
 import numpy as np
 import matplotlib.pyplot as plt
 import urllib.request
 %matplotlib inline
 
-#url����Download�ł��Ȃ��Ƃ���github�ɓo�^����Ă���circle.npy���g�p����
+#urlからDownloadできないときはgithubに登録されているcircle.npyを使用する
 url = "https://aidemystorageprd.blob.core.windows.net/data/5100_cnn_data/circle.npy"
 local_filename, headers = urllib.request.urlretrieve(url)
 X = np.load(local_filename)
 
-#�~�̉摜��\������
+#円の画像を表示する
 
-# ��ݍ��ݑw
+# 畳み込み層
 
-# �J�[�l��(�t�B���^)
+# カーネル(フィルタ)
 W = np.array([[0,1,0],
               [0,1,0],
               [0,1,0]])
 
-#�J�[�l���̉摜��\��
+#カーネルの画像を表示
 
-# ��ݍ���
+# 畳み込み
 
-#��ݍ��ݏ����������摜���̕\��
+#畳み込み処理をした画像ｗの表示
 

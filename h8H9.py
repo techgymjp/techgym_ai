@@ -1,6 +1,6 @@
 #Tech-Gym-13-20-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#‰æ‘œ•ª—Ş
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#ç”»åƒåˆ†é¡
 
 #
 import sys, os, glob
@@ -21,7 +21,7 @@ def tar_ex():
     tar.extractall()
     tar.close()
     
-#ƒtƒ@ƒCƒ‹‚Ì€”õ
+#ãƒ•ã‚¡ã‚¤ãƒ«ã®æº–å‚™
 title = "101_ObjectCategories.tar.gz"
 if not os.path.exists(title):
     print(title + " DOWNLOAD.")
@@ -30,24 +30,24 @@ if not os.path.exists(title):
 else :
     print(title + " EXIST.")
 
-# •ª—Ş‘ÎÛ‚ÌƒJƒeƒSƒŠ‚ğ‘I‚Ô
+# åˆ†é¡å¯¾è±¡ã®ã‚«ãƒ†ã‚´ãƒªã‚’é¸ã¶
 caltech_dir = "./101_ObjectCategories"
 categories = ["chair","camera","butterfly","elephant","flamingo"]
 nb_classes = len(categories)
 
-# ‰æ‘œƒTƒCƒY‚ğw’è
+# ç”»åƒã‚µã‚¤ã‚ºã‚’æŒ‡å®š
 image_w = 64 
 image_h = 64
 pixels = image_w * image_h * 3
 
-# ‰æ‘œƒf[ƒ^‚ğ“Ç‚İ‚İ
+# ç”»åƒãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
 X = []
 Y = []
 for idx, cat in enumerate(categories):
-    # ƒ‰ƒxƒ‹‚ğw’è
+    # ãƒ©ãƒ™ãƒ«ã‚’æŒ‡å®š
     label = [0 for i in range(nb_classes)]
     label[idx] = 1
-    # ‰æ‘œ
+    # ç”»åƒ
     image_dir = caltech_dir + "/" + cat
     files = glob.glob(image_dir+"/*.jpg")
     for i, f in enumerate(files):
@@ -64,7 +64,7 @@ file_path_err = os.path.dirname("image")
 if not os.path.exists(file_path_err):
     os.makedirs("./image", exist_ok=True)
 
-# ŠwKƒf[ƒ^‚ÆƒeƒXƒgƒf[ƒ^‚ğ•ª‚¯‚é
+# å­¦ç¿’ãƒ‡ãƒ¼ã‚¿ã¨ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’åˆ†ã‘ã‚‹
 X_train, X_test, y_train, y_test = train_test_split(X, Y)
 xy = (X_train, X_test, y_train, y_test)
 np.save("./image/5obj.npy", xy)

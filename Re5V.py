@@ -1,13 +1,13 @@
 #tech-gym-13-2-A
-#ƒZƒ“ƒT[ƒf[ƒ^•ªÍ
+#ã‚»ãƒ³ã‚µãƒ¼ãƒ‡ãƒ¼ã‚¿åˆ†æ
 
-#•K—v‚È‚à‚Ì‚ğƒCƒ“ƒ|[ƒg‚·‚é
+#å¿…è¦ãªã‚‚ã®ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹
 import pandas as pd
 
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-# l‘“d—Í‚Ì“d—ÍÁ”ï—Êƒf[ƒ^‚ğ“Ç‚İ‚İ
+# å››å›½é›»åŠ›ã®é›»åŠ›æ¶ˆè²»é‡ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
 elec_data = pd.read_csv(
     'shikoku_electricity_2012.csv',
     skiprows=3,
@@ -15,24 +15,24 @@ elec_data = pd.read_csv(
     parse_dates={'date_hour': ['DATE', 'TIME']},
     index_col = "date_hour")
 
-# ‰æ‘œ‚ÌƒTƒCƒY‚ğİ’è‚·‚é
+# ç”»åƒã®ã‚µã‚¤ã‚ºã‚’è¨­å®šã™ã‚‹
 plt.figure(figsize=(12, 12))
 
-# Œn—ñƒOƒ‰ƒt¶¬
+# æ™‚ç³»åˆ—ã‚°ãƒ©ãƒ•ç”Ÿæˆ
 delta = elec_data.index - pd.to_datetime('2012/07/01 00:00:00')
 elec_data['time'] = delta.days + delta.seconds / 3600.0 / 24.0
 
-#“d—ÍÁ”ï—Ê‚ÌŠÔ•Ï‰»
+#é›»åŠ›æ¶ˆè²»é‡ã®æ™‚é–“å¤‰åŒ–
 plt.subplot(2, 1, 1)
 plt.scatter(elec_data['time'], elec_data['consumption'], s=1)
 plt.xlabel('days from 2012/7/1')
 plt.ylabel('electricity consumption(*10000 kWh)')
 
-# ƒqƒXƒgƒOƒ‰ƒ€¶¬
+# ãƒ’ã‚¹ãƒˆã‚°ãƒ©ãƒ ç”Ÿæˆ
 plt.subplot(2, 1, 2)
 plt.hist(elec_data['consumption'], bins=100, color="gray")
 plt.xlabel('electricity consumption(*10000 kW)')
 plt.ylabel(u'count')
 
-# ƒOƒ‰ƒt
+# ã‚°ãƒ©ãƒ•
 plt.show()

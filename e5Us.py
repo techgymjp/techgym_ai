@@ -1,13 +1,13 @@
 #Tech-Gym-13-17-Q
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿
 
-#•K—v‚Èƒ‰ƒCƒuƒ‰ƒŠ
+#å¿…è¦ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒª
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-#MNISTƒf[ƒ^
+#MNISTãƒ‡ãƒ¼ã‚¿
 from keras.datasets import mnist
 
 #keras
@@ -17,20 +17,20 @@ from keras.models import Sequential, load_model
 from keras.utils.np_utils import to_categorical
 from keras.utils.vis_utils import plot_model
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
-# ƒf[ƒ^‚ğƒ[ƒh‚µ‚Ü‚·
+# ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-# ‚±‚±‚Å‚Í‘Sƒf[ƒ^‚Ì‚¤‚¿AŠwK‚É‚Í6000AƒeƒXƒg‚É‚Í1000ŒÂ‚Ìƒf[ƒ^‚ğg—p‚·‚é
+# ã“ã“ã§ã¯å…¨ãƒ‡ãƒ¼ã‚¿ã®ã†ã¡ã€å­¦ç¿’ã«ã¯6000ã€ãƒ†ã‚¹ãƒˆã«ã¯1000å€‹ã®ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ç”¨ã™ã‚‹
 X_train = X_train[:6000].reshape(-1, 28, 28, 1)
 X_test = X_test[:1000].reshape(-1, 28, 28, 1)
 y_train = to_categorical(y_train)[:6000]
 y_test = to_categorical(y_test)[:1000]
 
-# ƒ‚ƒfƒ‹‚ğ’è‹`‚µ‚Ü‚·
+# ãƒ¢ãƒ‡ãƒ«ã‚’å®šç¾©ã—ã¾ã™
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3),input_shape=(28,28,1)))
 model.add(Activation('relu'))
@@ -55,17 +55,17 @@ model.fit(X_train, y_train,
           verbose=1,
           validation_data=(X_test, y_test))
 
-#ƒ‚ƒfƒ‹•]‰¿
+#ãƒ¢ãƒ‡ãƒ«è©•ä¾¡
 score = model.evaluate(X_test, y_test, verbose=1)
 print("evaluate loss: {0[0]}\nevaluate acc: {0[1]}".format(score))
 
-###•K—v‚È‚çˆÈ‰º‚ğ•\¦‚·‚é####
-#¬‡s—ñ
+###å¿…è¦ãªã‚‰ä»¥ä¸‹ã‚’è¡¨ç¤ºã™ã‚‹####
+#æ··åˆè¡Œåˆ—
 #print('Cross tabulation')
 #y_pred = model.predict_classes(X_test)
 #y_test_c = np.argmax(y_test, axis=1)
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 #print(confusion_matrix(y_pred, y_test_c))
-#print('³‰ğ—¦:{:.3f}'.format(accuracy_score(y_pred, y_test_c)))
+#print('æ­£è§£ç‡:{:.3f}'.format(accuracy_score(y_pred, y_test_c)))
 

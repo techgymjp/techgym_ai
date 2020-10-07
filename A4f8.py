@@ -1,8 +1,8 @@
 #Tech-Gym-13-24-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#ˆÚ“]ŠwK:VGG16
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#ç§»è»¢å­¦ç¿’:VGG16
 
-#•K—v‚È‚à‚Ì‚ğƒCƒ“ƒ|[ƒg
+#å¿…è¦ãªã‚‚ã®ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
 import os
 import json
 import numpy as np
@@ -10,7 +10,7 @@ import urllib.request
 from keras.applications.vgg16 import VGG16, preprocess_input, decode_predictions
 from keras.preprocessing import image
 
-#‰æ‘œ‚ğ•\¦‚·‚é‚½‚ß‚ÉƒCƒ“ƒ|[ƒg
+#ç”»åƒã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã«ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
 import matplotlib.pyplot as plt
 %matplotlib inline
 
@@ -28,58 +28,58 @@ def download_image():
         print("DOWNLOAD image file.")
         urllib.request.urlretrieve(url,"{0}".format(title))
 
-# ƒ‚ƒfƒ‹‚ğ\’z‚·‚é
+# ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹
 model = VGG16()
 model.summary()
 
-#ƒCƒ“ƒvƒbƒg‚ÌŒ`‚ğŠm”F‚·‚é
+#ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã®å½¢ã‚’ç¢ºèªã™ã‚‹
 # model.input_shape (None, 224, 224, 3)
 print('model.input_shape', model.input_shape)  
 
-# ‰æ‘œ‚ğ“Ç‚İ‚İAƒ‚ƒfƒ‹‚Ì“ü—ÍƒTƒCƒY‚ÅƒŠƒTƒCƒY
+# ç”»åƒã‚’èª­ã¿è¾¼ã¿ã€ãƒ¢ãƒ‡ãƒ«ã®å…¥åŠ›ã‚µã‚¤ã‚ºã§ãƒªã‚µã‚¤ã‚º
 download_image()
 img_path = 'keras-vgg16-model_01.jpg'
 img = image.load_img(img_path, target_size=model.input_shape[1:3])
 
-# PIL.Image ƒIƒuƒWƒFƒNƒg‚ğ np.float32 Œ^‚Ì numpy ”z—ñ‚É•ÏŠ·
+# PIL.Image ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ np.float32 å‹ã® numpy é…åˆ—ã«å¤‰æ›
 x = image.img_to_array(img)
 print('x.shape: {}, x.dtype: {}'.format(x.shape, x.dtype))
 # x.shape: (224, 224, 3), x.dtype: float32
 
-# ”z—ñ‚ÌŒ`ó‚ğ (Height, Width, Channels) ‚©‚ç (1, Height, Width, Channels) ‚É•ÏX
+# é…åˆ—ã®å½¢çŠ¶ã‚’ (Height, Width, Channels) ã‹ã‚‰ (1, Height, Width, Channels) ã«å¤‰æ›´
 x = np.expand_dims(x, axis=0)
 print('x.shape: {}'.format(x.shape))  # x.shape: (1, 224, 224, 3)
 
-# ‘Oˆ—
+# å‰å‡¦ç†
 x = preprocess_input(x)
 
 # preds.shape: (1, 1000)
 preds = model.predict(x)
 print('preds.shape: {}'.format(preds.shape))
 
-#‰æ‘œ‚ğ—\‘ª‚·‚é
+#ç”»åƒã‚’äºˆæ¸¬ã™ã‚‹
 result = decode_predictions(preds, top=5)[0]
 
-#—\‘ª‚µ‚½–¼‘O‚ğ•\¦
+#äºˆæ¸¬ã—ãŸåå‰ã‚’è¡¨ç¤º
 for _, name, score in result:
     print('{}: {:.2%}'.format(name, score))
 
-#“ú–{Œêƒtƒ@ƒCƒ‹‚ğƒ_ƒEƒ“ƒ[ƒh
+#æ—¥æœ¬èªãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
 download_json()
     
-# ImageNet ‚Ìƒ‰ƒxƒ‹ˆê——‚ğ“Ç‚İ‚Ş
+# ImageNet ã®ãƒ©ãƒ™ãƒ«ä¸€è¦§ã‚’èª­ã¿è¾¼ã‚€
 with open('./imagenet_class_index.json',encoding="utf-8") as f:
     data = json.load(f)
     class_names = np.array([row['ja'] for row in data])
 
-# „˜_‚·‚é
+# æ¨è«–ã™ã‚‹
 scores = model.predict(x)[0]
 top5_classes = scores.argsort()[-5:][::-1]
 
 plt.axis('off')
 plt.imshow(img)
 
-# „˜_Œ‹‰Ê‚ğ•\¦
+# æ¨è«–çµæœã‚’è¡¨ç¤º
 for name, score in zip(class_names[top5_classes], scores[top5_classes]):
     print('{}: {:.2%}'.format(name, score))
 

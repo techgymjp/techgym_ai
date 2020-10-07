@@ -1,7 +1,7 @@
 #tech-gym-13-3-A
-#ƒZƒ“ƒT[ƒf[ƒ^•ªÍ
+#ã‚»ãƒ³ã‚µãƒ¼ãƒ‡ãƒ¼ã‚¿åˆ†æ
 
-#•K—v‚È‚à‚Ì‚ğƒCƒ“ƒ|[ƒg‚·‚é
+#å¿…è¦ãªã‚‚ã®ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹
 import pandas as pd
 import numpy as np
 
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import sklearn.svm
 
-# l‘“d—Í‚Ì“d—ÍÁ”ï—Êƒf[ƒ^‚ğ“Ç‚İ‚İ
+# å››å›½é›»åŠ›ã®é›»åŠ›æ¶ˆè²»é‡ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
 elec_data = pd.read_csv(
     'shikoku_electricity_2012.csv',
     skiprows=3,
@@ -19,41 +19,41 @@ elec_data = pd.read_csv(
     parse_dates={'date_hour': ['DATE', 'TIME']},
     index_col = "date_hour")
 
-#‹CÛƒf[ƒ^‚ğ“Ç‚İ‚İ
+#æ°—è±¡ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
 tmp = pd.read_csv(
     u'takamatsu.csv',
-    parse_dates={'date_hour': ["“ú"]},
+    parse_dates={'date_hour': ["æ—¥æ™‚"]},
     index_col = "date_hour",
-    na_values="~"
+    na_values="Ã—"
 )
 
-del tmp[""]  # uv‚Ì—ñ‚Íg‚í‚È‚¢‚Ì‚ÅAíœ
+del tmp["æ™‚"]  # ã€Œæ™‚ã€ã®åˆ—ã¯ä½¿ã‚ãªã„ã®ã§ã€å‰Šé™¤
 
-# —ñ‚Ì–¼‘O‚ğ‰pŒê‚É•ÏX
+# åˆ—ã®åå‰ã‚’è‹±èªã«å¤‰æ›´
 columns = {
-    "~…—Ê(mm)": "rain",
-    "‹C‰·()": "temperature",
-    "“úÆŠÔ(h)": "sunhour",
-    "¼“x(“)": "humid",
+    "é™æ°´é‡(mm)": "rain",
+    "æ°—æ¸©(â„ƒ)": "temperature",
+    "æ—¥ç…§æ™‚é–“(h)": "sunhour",
+    "æ¹¿åº¦(ï¼…)": "humid",
 }
 tmp.rename(columns=columns, inplace=True)
 
-#Œ‡‘¹’l‚ğ-1‚É‚·‚é
+#æ¬ æå€¤ã‚’-1ã«ã™ã‚‹
 tmp.fillna(-1,inplace=True)
 
-# Œ, “ú, ‚Ìæ“¾
+# æœˆ, æ—¥, æ™‚ã®å–å¾—
 tmp["month"] = tmp.index.month
 tmp['day'] = tmp.index.day
 tmp['dayofyear'] = tmp.index.dayofyear
 tmp['hour'] = tmp.index.hour
 
-# ‹CÛƒf[ƒ^‚Æ“d—ÍÁ”ï—Êƒf[ƒ^‚ğ‚¢‚Á‚½‚ñ“‡‚µ‚ÄŠÔ²‚ğ‡‚í‚¹‚½‚¤‚¦‚ÅAÄ“x•ªŠ„
+# æ°—è±¡ãƒ‡ãƒ¼ã‚¿ã¨é›»åŠ›æ¶ˆè²»é‡ãƒ‡ãƒ¼ã‚¿ã‚’ã„ã£ãŸã‚“çµ±åˆã—ã¦æ™‚é–“è»¸ã‚’åˆã‚ã›ãŸã†ãˆã§ã€å†åº¦åˆ†å‰²
 takamatsu = elec_data.join(tmp[["temperature","sunhour","month","hour"]]).dropna().values
 
 takamatsu_elec = takamatsu[:, 0:1]
 takamatsu_wthr = takamatsu[:, 1:]
 
-# ŠwK‚Æ«”\‚Ì•]‰¿
+# å­¦ç¿’ã¨æ€§èƒ½ã®è©•ä¾¡
 model = sklearn.svm.SVR(gamma='scale')
 
 x_train, x_test, y_train, y_test = train_test_split(
@@ -63,16 +63,16 @@ y_train = y_train.flatten()
 y_test = y_test.flatten()
 
 model.fit(x_train, y_train)
-date_name = ["‹C‰·", "“úÆŠÔ","Œ","ŠÔ"]
+date_name = ["æ°—æ¸©", "æ—¥ç…§æ™‚é–“","æœˆ","æ™‚é–“"]
 
-output = "g—p€–Ú = %s, ŒP—ûƒXƒRƒA = %f, ŒŸØƒXƒRƒA = %f" % \
+output = "ä½¿ç”¨é …ç›® = %s, è¨“ç·´ã‚¹ã‚³ã‚¢ = %f, æ¤œè¨¼ã‚¹ã‚³ã‚¢ = %f" % \
          (", ".join(date_name),
           model.score(x_train, y_train),
           model.score(x_test, y_test)
           )
 
-# o—Í
+# å‡ºåŠ›
 print (output)
 predicted = model.predict(x_test)
 print(pd.DataFrame(predicted).describe())
-print("•½”N•À‚İ‚Ì‹C‰·‚Å‚ ‚ê‚ÎA•½‹Ï345–œkWAÅ‘å438–œkW‚ğo‚¹‚é“d—Í‚Ìİ”õ“Š‘‚ğ‚·‚ê‚Î‚æ‚¢")
+print("å¹³å¹´ä¸¦ã¿ã®æ°—æ¸©ã§ã‚ã‚Œã°ã€å¹³å‡345ä¸‡kWã€æœ€å¤§438ä¸‡kWã‚’å‡ºã›ã‚‹é›»åŠ›ã®è¨­å‚™æŠ•è³‡ã‚’ã™ã‚Œã°ã‚ˆã„")

@@ -1,13 +1,13 @@
 #Tech-Gym-13-17-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿
 
-#•K—v‚Èƒ‰ƒCƒuƒ‰ƒŠ
+#å¿…è¦ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒª
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-#MNISTƒf[ƒ^
+#MNISTãƒ‡ãƒ¼ã‚¿
 from keras.datasets import mnist
 
 #keras
@@ -17,20 +17,20 @@ from keras.models import Sequential, load_model
 from keras.utils.np_utils import to_categorical
 from keras.utils.vis_utils import plot_model
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
-# ƒf[ƒ^‚ğƒ[ƒh‚µ‚Ü‚·
+# ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ­ãƒ¼ãƒ‰ã—ã¾ã™
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-# ‚±‚±‚Å‚Í‘Sƒf[ƒ^‚Ì‚¤‚¿AŠwK‚É‚Í6000AƒeƒXƒg‚É‚Í1000ŒÂ‚Ìƒf[ƒ^‚ğg—p‚·‚é
+# ã“ã“ã§ã¯å…¨ãƒ‡ãƒ¼ã‚¿ã®ã†ã¡ã€å­¦ç¿’ã«ã¯6000ã€ãƒ†ã‚¹ãƒˆã«ã¯1000å€‹ã®ãƒ‡ãƒ¼ã‚¿ã‚’ä½¿ç”¨ã™ã‚‹
 X_train = X_train[:6000].reshape(-1, 28, 28, 1)
 X_test = X_test[:1000].reshape(-1, 28, 28, 1)
 y_train = to_categorical(y_train)[:6000]
 y_test = to_categorical(y_test)[:1000]
 
-# ƒ‚ƒfƒ‹‚ğ’è‹`‚µ‚Ü‚·
+# ãƒ¢ãƒ‡ãƒ«ã‚’å®šç¾©ã—ã¾ã™
 model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3),input_shape=(28,28,1)))
 model.add(Activation('relu'))
@@ -55,33 +55,33 @@ model.fit(X_train, y_train,
           verbose=1,
           validation_data=(X_test, y_test))
 
-#ƒ‚ƒfƒ‹•]‰¿
+#ãƒ¢ãƒ‡ãƒ«è©•ä¾¡
 score = model.evaluate(X_test, y_test, verbose=1)
 print("evaluate loss: {0[0]}\nevaluate acc: {0[1]}".format(score))
 
-###•K—v‚È‚çˆÈ‰º‚ğ•\¦‚·‚é####
-#¬‡s—ñ
+###å¿…è¦ãªã‚‰ä»¥ä¸‹ã‚’è¡¨ç¤ºã™ã‚‹####
+#æ··åˆè¡Œåˆ—
 #print('Cross tabulation')
 #y_pred = model.predict_classes(X_test)
 #y_test_c = np.argmax(y_test, axis=1)
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 #print(confusion_matrix(y_pred, y_test_c))
-#print('³‰ğ—¦:{:.3f}'.format(accuracy_score(y_pred, y_test_c)))
+#print('æ­£è§£ç‡:{:.3f}'.format(accuracy_score(y_pred, y_test_c)))
 
-#ƒ‚ƒfƒ‹\‘¢
+#ãƒ¢ãƒ‡ãƒ«æ§‹é€ 
 model.summary()
 
-#ƒ‚ƒfƒ‹‚Ìd‚İ
+#ãƒ¢ãƒ‡ãƒ«ã®é‡ã¿
 print(model.weights)
 
-# ƒŒƒCƒ„[‚²‚Æ‚Ìƒpƒ‰ƒ[ƒ^‚ªæ“¾‚Å‚«‚é
+# ãƒ¬ã‚¤ãƒ¤ãƒ¼ã”ã¨ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒå–å¾—ã§ãã‚‹
 # list of the layers
-# ‘w‚Ì”z—ñ‚Ì”Ô†‚ª‚í‚©‚é
+# å±¤ã®é…åˆ—ã®ç•ªå·ãŒã‚ã‹ã‚‹
 for i, l in enumerate(model.layers):
     print(i, l)
 
-# ƒŒƒCƒ„[‚Ìweights‚Æbias
+# ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®weightsã¨bias
 w1 = model.layers[0].get_weights()[0] 
 b1 = model.layers[0].get_weights()[1]
 
@@ -94,11 +94,11 @@ b7 = model.layers[7].get_weights()[1]
 w10 = model.layers[10].get_weights()[0]
 b10 = model.layers[10].get_weights()[1]
 
-#ƒpƒ‰ƒ[ƒ^‚Ì‘å‚«‚³
+#ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¤§ãã•
 print(w1.shape, b1.shape)
 print(w2.shape, b2.shape)
 print(w7.shape, b7.shape)
 print(w10.shape, b10.shape)
 
-#ƒpƒ‰ƒ[ƒ^‚ÆƒoƒCƒAƒX
+#ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ãƒã‚¤ã‚¢ã‚¹
 print(w1, b1)

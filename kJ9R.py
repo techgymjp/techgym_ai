@@ -1,25 +1,25 @@
 #Tech-Gym-13-25-A
-#ƒŠƒAƒ‹ƒ^ƒCƒ€‰æ‘œ”F¯
+#ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ç”»åƒèªè­˜
 
 import cv2
 import numpy as np
 
-# WebƒJƒƒ‰‚©‚ç“ü—Í‚ğŠJn
+# Webã‚«ãƒ¡ãƒ©ã‹ã‚‰å…¥åŠ›ã‚’é–‹å§‹
 cap = cv2.VideoCapture(0)
 
 while True:
-    # ƒJƒƒ‰‚Ì‰æ‘œ‚ğ“Ç‚İ‚Ş
+    # ã‚«ãƒ¡ãƒ©ã®ç”»åƒã‚’èª­ã¿è¾¼ã‚€
     _, frame = cap.read()
     
-    # ‰æ‘œ‚ğk¬•\¦‚·‚é
+    # ç”»åƒã‚’ç¸®å°è¡¨ç¤ºã™ã‚‹
     frame = cv2.resize(frame, (500,300))
     
-    # ƒEƒBƒ“ƒhƒE‚É‰æ‘œ‚ğo—Í
+    # ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ç”»åƒã‚’å‡ºåŠ›
     cv2.imshow('OpenCV Web Camera', frame)
     
-    # ESC‚©EnterƒL[‚ª‰Ÿ‚³‚ê‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é
-    k = cv2.waitKey(1) # 1msecŠm”F
+    # ESCã‹Enterã‚­ãƒ¼ãŒæŠ¼ã•ã‚ŒãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
+    k = cv2.waitKey(1) # 1msecç¢ºèª
     if k == 27 or k == 13: break
 
-cap.release() # ƒJƒƒ‰‚ğ‰ğ•ú
-cv2.destroyAllWindows() # ƒEƒBƒ“ƒhƒE‚ğ”jŠü
+cap.release() # ã‚«ãƒ¡ãƒ©ã‚’è§£æ”¾
+cv2.destroyAllWindows() # ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç ´æ£„

@@ -1,23 +1,23 @@
 #Tech-Gym-13-11-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^
-#60,000–‡‚Ì28x28C10ŒÂ‚Ì”š‚Ì”’•‰æ‘œ‚Æ10,000–‡‚ÌƒeƒXƒg—p‰æ‘œƒf[ƒ^ƒZƒbƒg
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿
+#60,000æšã®28x28ï¼Œ10å€‹ã®æ•°å­—ã®ç™½é»’ç”»åƒã¨10,000æšã®ãƒ†ã‚¹ãƒˆç”¨ç”»åƒãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆ
 
-#•K—v‚Èƒ‰ƒCƒuƒ‰ƒŠ
+#å¿…è¦ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒª
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 %matplotlib inline
 %config InlineBackend.figure_format = 'retina'
 
-#MNISTƒf[ƒ^
+#MNISTãƒ‡ãƒ¼ã‚¿
 from keras.datasets import mnist
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-#s—ñ‚Ì‘å‚«‚³‚ğŠm”F
+#è¡Œåˆ—ã®å¤§ãã•ã‚’ç¢ºèª
 print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)     
 
-#‚Í‚¶‚ß‚Ì100ŒÂ‚ğ•\¦
+#ã¯ã˜ã‚ã®100å€‹ã‚’è¡¨ç¤º
 plt.figure(figsize=(15, 15))
 gs = gridspec.GridSpec(10,10)
 

@@ -1,7 +1,7 @@
 #tech-gym-13-3-Q
-#�Z���T�[�f�[�^����
+#センサーデータ分析
 
-#�K�v�Ȃ��̂��C���|�[�g����
+#必要なものをインポートする
 import pandas as pd
 import numpy as np
 
@@ -11,22 +11,22 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 import sklearn.svm
 
-# �l���d�͂̓d�͏���ʃf�[�^��ǂݍ���
+# 四国電力の電力消費量データを読み込み
 
 
-#�C�ۃf�[�^��ǂݍ���
+#気象データを読み込み
 
-# �u���v�̗�͎g��Ȃ��̂ŁA�폜
+# 「時」の列は使わないので、削除
 
-# ��̖��O���p��ɕύX
+# 列の名前を英語に変更
 
-#�����l��-1�ɂ���
+#欠損値を-1にする
 
-# ��, ��, ���̎擾
+# 月, 日, 時の取得
 
-# �C�ۃf�[�^�Ɠd�͏���ʃf�[�^���������񓝍����Ď��Ԏ������킹�������ŁA�ēx����
+# 気象データと電力消費量データをいったん統合して時間軸を合わせたうえで、再度分割
 
 
-# �w�K�Ɛ��\�̕]��
+# 学習と性能の評価
 
-# �o��
+# 出力

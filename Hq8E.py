@@ -1,5 +1,5 @@
 #Tech-Gym-13-28-A
-#ƒŠƒAƒ‹ƒ^ƒCƒ€‰æ‘œ”F¯
+#ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ç”»åƒèªè­˜
 #
 
 from darkflow.net.build import TFNet
@@ -9,7 +9,7 @@ import numpy as np
 options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.weights", "threshold": 0.1}
 tfnet = TFNet(options)
 
-# ƒJƒƒ‰‚Ì‹N“®
+# ã‚«ãƒ¡ãƒ©ã®èµ·å‹•
 cap = cv2.VideoCapture(0)
 
 class_names = ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 
@@ -33,7 +33,7 @@ def main():
 
     while(True):
 
-        # “®‰æƒXƒgƒŠ[ƒ€‚©‚çƒtƒŒ[ƒ€‚ğæ“¾
+        # å‹•ç”»ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‹ã‚‰ãƒ•ãƒ¬ãƒ¼ãƒ ã‚’å–å¾—
         ret, frame = cap.read()
         frame = cv2.resize(frame,(1000,600))
         result = tfnet.return_predict(frame)
@@ -53,18 +53,18 @@ def main():
                         class_num = class_names.index(i)
                         break
 
-                #˜g‚Ìì¬
+                #æ ã®ä½œæˆ
                 cv2.rectangle(frame, (tlx, tly), (brx, bry), class_colors[class_num], 2)
 
-                #ƒ‰ƒxƒ‹‚Ìì¬
+                #ãƒ©ãƒ™ãƒ«ã®ä½œæˆ
                 text = label + " " + ('%.2f' % conf)  
                 cv2.rectangle(frame, (tlx, tly - 15), (tlx + 100, tly + 5), class_colors[class_num], -1)
                 cv2.putText(frame, text, (tlx, tly), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1)
 
-        # •\¦
+        # è¡¨ç¤º
         cv2.imshow("Show FLAME Image", frame) 
 
-        # esc‚ğ‰Ÿ‚µ‚½‚çI—¹B
+        # escã‚’æŠ¼ã—ãŸã‚‰çµ‚äº†ã€‚
         k = cv2.waitKey(10);
         if k == ord('q'):  break;
 

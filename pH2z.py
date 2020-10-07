@@ -1,6 +1,6 @@
 #Tech-Gym-13-19-Q
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^:ƒ‚ƒfƒ‹•Û‘¶
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿:ãƒ¢ãƒ‡ãƒ«ä¿å­˜
 
 import keras
 from sklearn import datasets
@@ -10,43 +10,43 @@ from keras.layers import Dense, Dropout
 from keras.utils.np_utils import to_categorical
 
 
-# ƒ‰ƒxƒ‹ƒf[ƒ^‚ğone-hotƒxƒNƒgƒ‹‚É’¼‚·
+# ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’one-hotãƒ™ã‚¯ãƒˆãƒ«ã«ç›´ã™
 x = iris.data
 y = to_categorical(iris.target, nb_classes)
 
-# ƒ‚ƒfƒ‹‚ğ’è‹`
+# ãƒ¢ãƒ‡ãƒ«ã‚’å®šç¾©
 
 
-# ƒRƒ“ƒpƒCƒ‹
+# ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«
 model.compile(
     loss='categorical_crossentropy',
     optimizer='adam',
     metrics=['accuracy'])
 
-# ŠwK‚ğÀs
+# å­¦ç¿’ã‚’å®Ÿè¡Œ
 
 
-# ƒ‚ƒfƒ‹‚ğ•Û‘¶
+# ãƒ¢ãƒ‡ãƒ«ã‚’ä¿å­˜
 
 
-# ŠwKÏ‚İd‚İƒf[ƒ^‚ğ•Û‘¶
+# å­¦ç¿’æ¸ˆã¿é‡ã¿ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜
 
-# ƒAƒ„ƒ‚ÌƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+# ã‚¢ãƒ¤ãƒ¡ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
 
 
-# ƒ‰ƒxƒ‹ƒf[ƒ^‚ğone-hotƒxƒNƒgƒ‹‚É’¼‚·
+# ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’one-hotãƒ™ã‚¯ãƒˆãƒ«ã«ç›´ã™
 x = iris.data
 y = to_categorical(iris.target, nb_classes)
 
-# ƒ‚ƒfƒ‹‚ğ“Ç
+# ãƒ¢ãƒ‡ãƒ«ã‚’èª­è¾¼
 
 
-# d‚İƒf[ƒ^‚ğ“Ç
+# é‡ã¿ãƒ‡ãƒ¼ã‚¿ã‚’èª­è¾¼
 
 
-# ƒ‚ƒfƒ‹‚ğ•]‰¿
+# ãƒ¢ãƒ‡ãƒ«ã‚’è©•ä¾¡
 score = model.evaluate(x, y, verbose=1)
-print("³‰ğ—¦=", score[1])
+print("æ­£è§£ç‡=", score[1])
 
 
 

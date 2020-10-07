@@ -1,8 +1,8 @@
 #Tech-Gym-13-22-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#‰æ‘œ•ª—Ş
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#ç”»åƒåˆ†é¡
 
-#•K—v‚È‚à‚Ì‚ğƒCƒ“ƒ|[ƒg‚·‚é
+#å¿…è¦ãªã‚‚ã®ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆã™ã‚‹
 import h5py
 import os
 import numpy as np
@@ -13,23 +13,23 @@ from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 
-# ƒJƒeƒSƒŠ‚Ìw’è
+# ã‚«ãƒ†ã‚´ãƒªã®æŒ‡å®š
 categories = ["chair","camera","butterfly","elephant","flamingo"]
 nb_classes = len(categories)
 
-# ‰æ‘œƒTƒCƒY‚ğw’è
+# ç”»åƒã‚µã‚¤ã‚ºã‚’æŒ‡å®š
 image_w = 64 
 image_h = 64
 
-# ƒf[ƒ^‚ğƒ[ƒh
+# ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ­ãƒ¼ãƒ‰
 X_train, X_test, y_train, y_test = np.load("./image/5obj.npy")
 
-# ƒf[ƒ^‚ğ³‹K‰»‚·‚é
+# ãƒ‡ãƒ¼ã‚¿ã‚’æ­£è¦åŒ–ã™ã‚‹
 X_train = X_train.astype("float") / 256
 X_test  = X_test.astype("float")  / 256
 print('X_train shape:', X_train.shape)
 
-# ƒ‚ƒfƒ‹‚ğ\’z
+# ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰
 model = Sequential()
 model.add(Convolution2D(32, 3, 3, 
     border_mode='same',
@@ -55,7 +55,7 @@ model.compile(loss='binary_crossentropy',
     optimizer='rmsprop',
     metrics=['accuracy'])
 
-# ƒ‚ƒfƒ‹‚ğŒP—û‚·‚é
+# ãƒ¢ãƒ‡ãƒ«ã‚’è¨“ç·´ã™ã‚‹
 hdf5_file = "./image/5obj-model.hdf5"
 if os.path.exists(hdf5_file):
     model.load_weights(hdf5_file)
@@ -63,7 +63,7 @@ else:
     model.fit(X_train, y_train, batch_size=32, nb_epoch=50)
     model.save_weights(hdf5_file)
 
-# ƒ‚ƒfƒ‹‚ğ•]‰¿‚·‚é
+# ãƒ¢ãƒ‡ãƒ«ã‚’è©•ä¾¡ã™ã‚‹
 pre = model.predict(X_test)
 for i,v in enumerate(pre):
     pre_ans = v.argmax()

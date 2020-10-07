@@ -1,18 +1,18 @@
 #Tech-Gym-13-11-Q
-#�f�B�[�v���[�j���O�摜���ފ�:CNN
-#�菑�������f�[�^
-#60,000����28x28�C10�̐����̔����摜��10,000���̃e�X�g�p�摜�f�[�^�Z�b�g
+#ディープラーニング画像分類器:CNN
+#手書き文字データ
+#60,000枚の28x28，10個の数字の白黒画像と10,000枚のテスト用画像データセット
 
-#�K�v�ȃ��C�u����
+#必要なライブラリ
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 %matplotlib inline
 %config InlineBackend.figure_format = 'retina'
 
-#MNIST�f�[�^
+#MNISTデータ
 
-#�s��̑傫�����m�F  
+#行列の大きさを確認  
 
-#�͂��߂�100��\��
+#はじめの100個を表示
 plt.figure(figsize=(15, 15))
 

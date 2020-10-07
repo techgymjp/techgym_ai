@@ -1,6 +1,6 @@
 #Tech-Gym-13-19-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^:ƒ‚ƒfƒ‹•Û‘¶
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿:ãƒ¢ãƒ‡ãƒ«ä¿å­˜
 
 import keras
 from sklearn import datasets
@@ -9,54 +9,54 @@ from keras.models import load_model
 from keras.layers import Dense, Dropout
 from keras.utils.np_utils import to_categorical
 
-# ƒAƒ„ƒ‚ÌƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+# ã‚¢ãƒ¤ãƒ¡ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
 iris = datasets.load_iris()
 in_size = 4
 nb_classes=3
 
-# ƒ‰ƒxƒ‹ƒf[ƒ^‚ğone-hotƒxƒNƒgƒ‹‚É’¼‚·
+# ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’one-hotãƒ™ã‚¯ãƒˆãƒ«ã«ç›´ã™
 x = iris.data
 y = to_categorical(iris.target, nb_classes)
 
-# ƒ‚ƒfƒ‹‚ğ’è‹`
+# ãƒ¢ãƒ‡ãƒ«ã‚’å®šç¾©
 model = Sequential()
 model.add(Dense(512, activation='relu', input_shape=(in_size,)))
 model.add(Dense(512, activation='relu'))
 model.add(Dropout(0.2))
 model.add(Dense(nb_classes, activation='softmax'))
 
-# ƒRƒ“ƒpƒCƒ‹
+# ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«
 model.compile(
     loss='categorical_crossentropy',
     optimizer='adam',
     metrics=['accuracy'])
 
-# ŠwK‚ğÀs
+# å­¦ç¿’ã‚’å®Ÿè¡Œ
 model.fit(x, y, batch_size=20, epochs=50)
 
-# ƒ‚ƒfƒ‹‚ğ•Û‘¶
+# ãƒ¢ãƒ‡ãƒ«ã‚’ä¿å­˜
 model.save('iris_model.h5')
 
-# ŠwKÏ‚İd‚İƒf[ƒ^‚ğ•Û‘¶
+# å­¦ç¿’æ¸ˆã¿é‡ã¿ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜
 model.save_weights('iris_weight.h5')
 
-# ƒAƒ„ƒ‚ÌƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+# ã‚¢ãƒ¤ãƒ¡ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
 iris = datasets.load_iris()
 in_size = 4
 nb_classes=3
 
-# ƒ‰ƒxƒ‹ƒf[ƒ^‚ğone-hotƒxƒNƒgƒ‹‚É’¼‚·
+# ãƒ©ãƒ™ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’one-hotãƒ™ã‚¯ãƒˆãƒ«ã«ç›´ã™
 x = iris.data
 y = to_categorical(iris.target, nb_classes)
 
-# ƒ‚ƒfƒ‹‚ğ“Ç
+# ãƒ¢ãƒ‡ãƒ«ã‚’èª­è¾¼
 model = load_model('iris_model.h5')
 
-# d‚İƒf[ƒ^‚ğ“Ç
+# é‡ã¿ãƒ‡ãƒ¼ã‚¿ã‚’èª­è¾¼
 model.load_weights('iris_weight.h5')
 
-# ƒ‚ƒfƒ‹‚ğ•]‰¿
+# ãƒ¢ãƒ‡ãƒ«ã‚’è©•ä¾¡
 score = model.evaluate(x, y, verbose=1)
-print("³‰ğ—¦=", score[1])
+print("æ­£è§£ç‡=", score[1])
 
 

@@ -1,8 +1,8 @@
 #Tech-Gym-13-24-Q
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#ˆÚ“]ŠwK:VGG16
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#ç§»è»¢å­¦ç¿’:VGG16
 
-#•K—v‚È‚à‚Ì‚ğƒCƒ“ƒ|[ƒg
+#å¿…è¦ãªã‚‚ã®ã‚’ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
 import os
 import json
 import numpy as np
@@ -10,7 +10,7 @@ import urllib.request
 from keras.applications.vgg16 import VGG16, preprocess_input, decode_predictions
 from keras.preprocessing import image
 
-#‰æ‘œ‚ğ•\¦‚·‚é‚½‚ß‚ÉƒCƒ“ƒ|[ƒg
+#ç”»åƒã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã«ã‚¤ãƒ³ãƒãƒ¼ãƒˆ
 import matplotlib.pyplot as plt
 %matplotlib inline
 
@@ -28,44 +28,44 @@ def download_image():
         print("DOWNLOAD image file.")
         urllib.request.urlretrieve(url,"{0}".format(title))
 
-# ƒ‚ƒfƒ‹‚ğ\’z‚·‚é
+# ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ã™ã‚‹
 model = VGG16()
 model.summary()
 
-#ƒCƒ“ƒvƒbƒg‚ÌŒ`‚ğŠm”F‚·‚é
+#ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã®å½¢ã‚’ç¢ºèªã™ã‚‹
 # model.input_shape (None, 224, 224, 3)
 
 
-# ‰æ‘œ‚ğ“Ç‚İ‚İAƒ‚ƒfƒ‹‚Ì“ü—ÍƒTƒCƒY‚ÅƒŠƒTƒCƒY
+# ç”»åƒã‚’èª­ã¿è¾¼ã¿ã€ãƒ¢ãƒ‡ãƒ«ã®å…¥åŠ›ã‚µã‚¤ã‚ºã§ãƒªã‚µã‚¤ã‚º
 
 
-# PIL.Image ƒIƒuƒWƒFƒNƒg‚ğ np.float32 Œ^‚Ì numpy ”z—ñ‚É•ÏŠ·
+# PIL.Image ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ np.float32 å‹ã® numpy é…åˆ—ã«å¤‰æ›
 
 
-# ”z—ñ‚ÌŒ`ó‚ğ (Height, Width, Channels) ‚©‚ç (1, Height, Width, Channels) ‚É•ÏX
+# é…åˆ—ã®å½¢çŠ¶ã‚’ (Height, Width, Channels) ã‹ã‚‰ (1, Height, Width, Channels) ã«å¤‰æ›´
 
 
-# ‘Oˆ—
+# å‰å‡¦ç†
 
 
 # preds.shape: (1, 1000)
 
 
-#‰æ‘œ‚ğ—\‘ª‚·‚é
+#ç”»åƒã‚’äºˆæ¸¬ã™ã‚‹
 
 
-#—\‘ª‚µ‚½–¼‘O‚ğ•\¦
+#äºˆæ¸¬ã—ãŸåå‰ã‚’è¡¨ç¤º
 
 
-#“ú–{Œêƒtƒ@ƒCƒ‹‚ğƒ_ƒEƒ“ƒ[ƒh
+#æ—¥æœ¬èªãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰
 
     
-# ImageNet ‚Ìƒ‰ƒxƒ‹ˆê——‚ğ“Ç‚İ‚Ş
+# ImageNet ã®ãƒ©ãƒ™ãƒ«ä¸€è¦§ã‚’èª­ã¿è¾¼ã‚€
 )
 
-# „˜_‚·‚é
+# æ¨è«–ã™ã‚‹
 
 
-# „˜_Œ‹‰Ê‚ğ•\¦
+# æ¨è«–çµæœã‚’è¡¨ç¤º
 
 

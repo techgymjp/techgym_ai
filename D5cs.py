@@ -1,5 +1,5 @@
 #tech-gym-13-UP-3-Q
-#ƒZƒ“ƒT[ƒf[ƒ^•ªÍ
+#ã‚»ãƒ³ã‚µãƒ¼ãƒ‡ãƒ¼ã‚¿åˆ†æ
 
 import pandas as pd
 import matplotlib.pyplot as plt

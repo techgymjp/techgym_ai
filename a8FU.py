@@ -1,31 +1,31 @@
 #Tech-Gym-13-18-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^:ƒ‚ƒfƒ‹•Û‘¶
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿:ãƒ¢ãƒ‡ãƒ«ä¿å­˜
 
 from sklearn import datasets, svm
 from sklearn.externals import joblib
 from sklearn.metrics import accuracy_score
 
-# ƒAƒ„ƒ‚ÌƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“Ç‚İ‚Ş
+# ã‚¢ãƒ¤ãƒ¡ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€
 iris = datasets.load_iris()
 
-# ƒf[ƒ^‚ğŠwK
+# ãƒ‡ãƒ¼ã‚¿ã‚’å­¦ç¿’
 model = svm.SVC()
 model.fit(iris.data, iris.target)
 
-# ŠwKÏ‚İƒf[ƒ^‚ğ•Û‘¶
+# å­¦ç¿’æ¸ˆã¿ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜
 joblib.dump(model, 'iris.pkl', compress=True)
 
-# •Û‘¶‚µ‚½ŠwKÏ‚İƒf[ƒ^‚Æ•ª—ŞŠí‚ğ“Ç‚İ‚Ş
+# ä¿å­˜ã—ãŸå­¦ç¿’æ¸ˆã¿ãƒ‡ãƒ¼ã‚¿ã¨åˆ†é¡å™¨ã‚’èª­ã¿è¾¼ã‚€
 clf = joblib.load('iris.pkl')
 
-# ƒAƒ„ƒ‚ÌƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğ“Ç‚İ‚İ
+# ã‚¢ãƒ¤ãƒ¡ã®ã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã¿
 iris = datasets.load_iris()
 
-# —\‘ª‚·‚é
+# äºˆæ¸¬ã™ã‚‹
 pre = clf.predict(iris.data)
 
-# ³‰ğ—¦‚ğ’²‚×‚é
+# æ­£è§£ç‡ã‚’èª¿ã¹ã‚‹
 print(accuracy_score(iris.target, pre))
 
 

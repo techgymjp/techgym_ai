@@ -1,14 +1,14 @@
 #Tech-Gym-13-10-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#ƒv[ƒŠƒ“ƒO‘w
-#ô‚İ‚İ‘w‚Ìo—Í‚ğk–ñ‚µ‚Äƒf[ƒ^‚Ì—Ê‚ğíŒ¸‚·‚é‘w
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#ãƒ—ãƒ¼ãƒªãƒ³ã‚°å±¤
+#ç•³ã¿è¾¼ã¿å±¤ã®å‡ºåŠ›ã‚’ç¸®ç´„ã—ã¦ãƒ‡ãƒ¼ã‚¿ã®é‡ã‚’å‰Šæ¸›ã™ã‚‹å±¤
 
 import numpy as np
 import matplotlib.pyplot as plt
 import urllib.request
 %matplotlib inline
 
-#url‚©‚çDownload‚Å‚«‚È‚¢‚Æ‚«‚Ígithub‚É“o˜^‚³‚ê‚Ä‚¢‚écircle.npy‚ğg—p‚·‚é
+#urlã‹ã‚‰Downloadã§ããªã„ã¨ãã¯githubã«ç™»éŒ²ã•ã‚Œã¦ã„ã‚‹circle.npyã‚’ä½¿ç”¨ã™ã‚‹
 url = "https://aidemystorageprd.blob.core.windows.net/data/5100_cnn_data/circle.npy"
 local_filename, headers = urllib.request.urlretrieve(url)
 X = np.load(local_filename)
@@ -17,22 +17,22 @@ plt.imshow(X)
 plt.title("The original image", fontsize=12)
 plt.show()
 
-#ô‚İ‚İ‘w‚ğ’è‹`
+#ç•³ã¿è¾¼ã¿å±¤ã‚’å®šç¾©
 class Conv:
-    # W‚Í3x3‚ÅŒÅ’è‚µ‚Ä‚¢‚éAstrides‚âpadding‚Íl—¶‚µ‚Ä‚¢‚È‚¢
+    # Wã¯3x3ã§å›ºå®šã—ã¦ã„ã‚‹ã€stridesã‚„paddingã¯è€ƒæ…®ã—ã¦ã„ãªã„
     def __init__(self, W):
         self.W = W
     def f_prop(self, X):
-        #o—Í—p‚Ìs—ñ‚ğ‰Šú‰»
+        #å‡ºåŠ›ç”¨ã®è¡Œåˆ—ã‚’åˆæœŸåŒ–
         out = np.zeros((X.shape[0]-2, X.shape[1]-2))
         for i in range(out.shape[0]):
             for j in range(out.shape[1]):
                 x = X[i:i+3, j:j+3]
-                # —v‘f‚²‚Æ‚ÌÏ‚Ì‡Œv‚ğ‚Æ‚Á‚Ä‚¢‚Ü‚·
+                # è¦ç´ ã”ã¨ã®ç©ã®åˆè¨ˆã‚’ã¨ã£ã¦ã„ã¾ã™
                 out[i,j] = np.dot(self.W.flatten(), x.flatten())
         return out
 
-#ƒv[ƒŠƒ“ƒO‘w
+#ãƒ—ãƒ¼ãƒªãƒ³ã‚°å±¤
 class Pool:
     def __init__(self, p):
         self.p = p
@@ -50,7 +50,7 @@ def show_image(G1,G2,G3,G4):
     plt.subplot(1,4,3); plt.imshow(G3)
     plt.subplot(1,4,4); plt.imshow(G4)
 
-# ƒJ[ƒlƒ‹(ƒtƒBƒ‹ƒ^)
+# ã‚«ãƒ¼ãƒãƒ«(ãƒ•ã‚£ãƒ«ã‚¿)
 W1 = np.array([[0,1,0],
                [0,1,0],
                [0,1,0]])
@@ -71,7 +71,7 @@ show_image(W1,W2,W3,W4)
 plt.suptitle("kernel", fontsize=12)
 plt.show()
 
-# ô‚İ‚İ
+# ç•³ã¿è¾¼ã¿
 conv1 = Conv(W1); C1 = conv1.f_prop(X)
 conv2 = Conv(W2); C2 = conv2.f_prop(X)
 conv3 = Conv(W3); C3 = conv3.f_prop(X)
@@ -81,7 +81,7 @@ show_image(C1,C2,C3,C4)
 plt.suptitle("Convolution result", fontsize=12)
 plt.show()
 
-# ƒv[ƒŠƒ“ƒO
+# ãƒ—ãƒ¼ãƒªãƒ³ã‚°
 pool = Pool(2)
 P1 = pool.f_prop(C1)
 P2 = pool.f_prop(C2)

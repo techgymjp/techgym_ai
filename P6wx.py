@@ -1,18 +1,18 @@
 #Tech-Gym-13-14-A
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#è‘‚«•¶šƒf[ƒ^
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#æ‰‹æ›¸ãæ–‡å­—ãƒ‡ãƒ¼ã‚¿
 
-###ƒnƒCƒp[ƒpƒ‰ƒ[ƒ^###
-#Šˆ«‰»ŠÖ”
-#‰B‚ê‘w‚Ì”A‰B‚ê‘w‚Ìƒ`ƒƒƒ“ƒlƒ‹”
-#ƒhƒƒbƒvƒAƒEƒg‚·‚éŠ„‡iratej
-#ŠwK—¦iIrj
-#Å“K‰»ŠÖ”ioptimizerj
-#Œë·ŠÖ”ilossj
-#ƒoƒbƒ`ƒTƒCƒYibatch_sizejš
-#ƒGƒ|ƒbƒN”iepochsj
+###ãƒã‚¤ãƒ‘ãƒ¼ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿###
+#æ´»æ€§åŒ–é–¢æ•°
+#éš ã‚Œå±¤ã®æ•°ã€éš ã‚Œå±¤ã®ãƒãƒ£ãƒ³ãƒãƒ«æ•°
+#ãƒ‰ãƒ­ãƒƒãƒ—ã‚¢ã‚¦ãƒˆã™ã‚‹å‰²åˆï¼ˆrateï¼‰
+#å­¦ç¿’ç‡ï¼ˆIrï¼‰
+#æœ€é©åŒ–é–¢æ•°ï¼ˆoptimizerï¼‰
+#èª¤å·®é–¢æ•°ï¼ˆlossï¼‰
+#ãƒãƒƒãƒã‚µã‚¤ã‚ºï¼ˆbatch_sizeï¼‰â˜…
+#ã‚¨ãƒãƒƒã‚¯æ•°ï¼ˆepochsï¼‰
 
-#•K—v‚Èƒ‰ƒCƒuƒ‰ƒŠ
+#å¿…è¦ãªãƒ©ã‚¤ãƒ–ãƒ©ãƒª
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -25,63 +25,63 @@ from keras.utils.np_utils import to_categorical
 from keras.layers import Dense, Activation
 from keras import optimizers
 
-#«”\•]‰¿
+#æ€§èƒ½è©•ä¾¡
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
-#MNISTƒf[ƒ^
+#MNISTãƒ‡ãƒ¼ã‚¿
 from keras.datasets import mnist
 
 (X_train, y_train), (X_test, y_test) = mnist.load_data()
 
-#s—ñ‚Ì‘å‚«‚³‚ğŠm”F
+#è¡Œåˆ—ã®å¤§ãã•ã‚’ç¢ºèª
 #print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)  
 
-#‚Í‚¶‚ß‚Ì6000ŒÂ‚ğ1ŸŒ³s—ñ‚ÌŒ`‚É•ÏX
+#ã¯ã˜ã‚ã®6000å€‹ã‚’1æ¬¡å…ƒè¡Œåˆ—ã®å½¢ã«å¤‰æ›´
 X_train = X_train.reshape(X_train.shape[0], 784)[:6000]
 X_test = X_test.reshape(X_test.shape[0], 784)[:1000]
 y_train = to_categorical(y_train)[:6000]
 y_test = to_categorical(y_test)[:1000]
 
-#s—ñ‚Ì‘å‚«‚³‚ğŠm”F
+#è¡Œåˆ—ã®å¤§ãã•ã‚’ç¢ºèª
 #print(X_train.shape, y_train.shape, X_test.shape, y_test.shape)    
 
-#ƒ‚ƒfƒ‹‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬
+#ãƒ¢ãƒ‡ãƒ«ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆ
 model = Sequential()
 
-# “ü—Íƒ†ƒjƒbƒg”‚Í784A1‚Â–Ú‚Ì‘SŒ‹‡‘w‚Ìo—Íƒ†ƒjƒbƒg”‚Í256
+# å…¥åŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯784ã€1ã¤ç›®ã®å…¨çµåˆå±¤ã®å‡ºåŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯256
 model.add(Dense(256, input_dim=784))
 model.add(Activation("sigmoid"))
 
-# 2‚Â–Ú‚Ì‘SŒ‹‡‘w‚Ìo—Íƒ†ƒjƒbƒg”‚Í128
+# 2ã¤ç›®ã®å…¨çµåˆå±¤ã®å‡ºåŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯128
 model.add(Dense(128))
 model.add(Activation("relu"))
 
-# 3‚Â–Ú‚Ì‘SŒ‹‡‘wio—Í‘wj‚Ìo—Íƒ†ƒjƒbƒg”‚Í10
+# 3ã¤ç›®ã®å…¨çµåˆå±¤ï¼ˆå‡ºåŠ›å±¤ï¼‰ã®å‡ºåŠ›ãƒ¦ãƒ‹ãƒƒãƒˆæ•°ã¯10
 model.add(Dense(10))
 model.add(Activation("softmax"))
 
-#ƒoƒbƒ`ƒTƒCƒY‚ğ•Ï‚¦‚ÄA³‰ğ—¦‚Ì•Ï‰»‚ğ’²‚×‚é
+#ãƒãƒƒãƒã‚µã‚¤ã‚ºã‚’å¤‰ãˆã¦ã€æ­£è§£ç‡ã®å¤‰åŒ–ã‚’èª¿ã¹ã‚‹
 BATCH_size = [4,8,16,32,64,128,256,512,1024]
 
-#ƒOƒ‰ƒt•`‰æ—p‚Ì‹óƒŠƒXƒg
+#ã‚°ãƒ©ãƒ•æç”»ç”¨ã®ç©ºãƒªã‚¹ãƒˆ
 acc = []
 
 for BATCH in BATCH_size:
-    #ŠwK—¦
+    #å­¦ç¿’ç‡
     sgd = optimizers.SGD(lr=100)
     
-    #ƒ‚ƒfƒ‹‚Ì¶¬
+    #ãƒ¢ãƒ‡ãƒ«ã®ç”Ÿæˆ
     model.compile(optimizer="sgd", loss="categorical_crossentropy", metrics=["accuracy"])
     
-    #ŠwK
+    #å­¦ç¿’
     history = model.fit(X_train, y_train, batch_size=BATCH, verbose=0, epochs=3)
 
-    #ƒ‚ƒfƒ‹•]‰¿
+    #ãƒ¢ãƒ‡ãƒ«è©•ä¾¡
     score = model.evaluate(X_test, y_test, verbose=0)
     acc.append(score[1])
 
-#ƒOƒ‰ƒt‚ğ€”õ
+#ã‚°ãƒ©ãƒ•ã‚’æº–å‚™
 fig = plt.figure()
 plt.subplots_adjust(wspace=0.4, hspace=0.4)
 ax = fig.add_subplot(1, 1, 1)

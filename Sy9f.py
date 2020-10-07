@@ -1,15 +1,15 @@
 #tech-gym-13-UP-3-Q
-#ƒZƒ“ƒT[ƒf[ƒ^•ªÍ
+#ã‚»ãƒ³ã‚µãƒ¼ãƒ‡ãƒ¼ã‚¿åˆ†æ
 
 import pandas as pd
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-# ‰·“xƒf[ƒ^
+# æ¸©åº¦ãƒ‡ãƒ¼ã‚¿
 df = pd.read_csv("humiduity.csv")
 #display(df)
 
-#ƒOƒ‰ƒt‰»
+#ã‚°ãƒ©ãƒ•åŒ–
 df = df.set_index('Time')
 
 fig, ax = plt.subplots(figsize=(15, 10))

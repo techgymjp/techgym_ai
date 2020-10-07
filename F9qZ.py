@@ -1,5 +1,5 @@
 #Tech-Gym-13-28-Q
-#ƒŠƒAƒ‹ƒ^ƒCƒ€‰æ‘œ”F¯
+#ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ç”»åƒèªè­˜
 #
 
 from darkflow.net.build import TFNet
@@ -9,7 +9,7 @@ import numpy as np
 options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.weights", "threshold": 0.1}
 tfnet = TFNet(options)
 
-# ƒJƒƒ‰‚Ì‹N“®
+# ã‚«ãƒ¡ãƒ©ã®èµ·å‹•
 cap = cv2.VideoCapture(0)
 
 class_names = ['aeroplane', 'bicycle', 'bird', 'boat', 'bottle', 
@@ -33,7 +33,7 @@ def main():
 
     while(True):
 
-        # esc‚ğ‰Ÿ‚µ‚½‚çI—¹B
+        # escã‚’æŠ¼ã—ãŸã‚‰çµ‚äº†ã€‚
         k = cv2.waitKey(10);
         if k == ord('q'):  break;
 

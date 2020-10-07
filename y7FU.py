@@ -1,34 +1,34 @@
 #Tech-Gym-13-21-Q
-#ƒfƒB[ƒvƒ‰[ƒjƒ“ƒO‰æ‘œ•ª—ŞŠí:CNN
-#‰æ‘œ•ª—Ş
+#ãƒ‡ã‚£ãƒ¼ãƒ—ãƒ©ãƒ¼ãƒ‹ãƒ³ã‚°ç”»åƒåˆ†é¡å™¨:CNN
+#ç”»åƒåˆ†é¡
 
 from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
 import numpy as np
 
-# ƒJƒeƒSƒŠ‚Ìw’è
+# ã‚«ãƒ†ã‚´ãƒªã®æŒ‡å®š
 categories = ["chair","camera","butterfly","elephant","flamingo"]
 nb_classes = len(categories)
 
-# ‰æ‘œƒTƒCƒY‚ğw’è
+# ç”»åƒã‚µã‚¤ã‚ºã‚’æŒ‡å®š
 image_w = 64 
 image_h = 64
 
-# ƒf[ƒ^‚ğƒ[ƒh
+# ãƒ‡ãƒ¼ã‚¿ã‚’ãƒ­ãƒ¼ãƒ‰
 
-# ƒf[ƒ^‚ğ³‹K‰»‚·‚é
+# ãƒ‡ãƒ¼ã‚¿ã‚’æ­£è¦åŒ–ã™ã‚‹
 
 
-# ƒ‚ƒfƒ‹‚ğ\’z 
+# ãƒ¢ãƒ‡ãƒ«ã‚’æ§‹ç¯‰ 
 
 
 model.compile(loss='binary_crossentropy',
     optimizer='rmsprop',
     metrics=['accuracy'])
 
-# ƒ‚ƒfƒ‹‚ğŒP—û‚·‚é
+# ãƒ¢ãƒ‡ãƒ«ã‚’è¨“ç·´ã™ã‚‹
 
 
-# ƒ‚ƒfƒ‹‚ğ•]‰¿‚·‚é
+# ãƒ¢ãƒ‡ãƒ«ã‚’è©•ä¾¡ã™ã‚‹
 

@@ -1,5 +1,5 @@
 #Tech-Gym-13-27-A
-#ƒŠƒAƒ‹ƒ^ƒCƒ€‰æ‘œ”F¯
+#ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ç”»åƒèªè­˜
 #
 
 from darkflow.net.build import TFNet
@@ -46,13 +46,13 @@ for item in result:
                 class_num = class_names.index(i)
                 break
 
-        #˜g‚Ìì¬
+        #æ ã®ä½œæˆ
         cv2.rectangle(imgcv, (tlx, tly), (brx, bry), class_colors[class_num], 2)
 
-        #ƒ‰ƒxƒ‹‚Ìì¬
+        #ãƒ©ãƒ™ãƒ«ã®ä½œæˆ
         text = label + " " + ('%.2f' % conf)
         cv2.rectangle(imgcv, (tlx, tly - 15), (tlx + 100, tly + 5), class_colors[class_num], -1)
         cv2.putText(imgcv, text, (tlx, tly), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,0), 1)
 
-# ‘‚«o‚µ
+# æ›¸ãå‡ºã—
 cv2.imwrite("./sample_img/sample_dog2.jpg", imgcv)

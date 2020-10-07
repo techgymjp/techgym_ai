@@ -1,5 +1,5 @@
 #tech-gym-13-UP-2-Q
-#ƒZƒ“ƒT[ƒf[ƒ^•ªÍ
-#aspberry Pi 3 ‰·“xƒZƒ“ƒT[
-#€”õ‚ªo—ˆ‚ê‚Î‰Û‘è‚ÍŠ®—¹
+#ã‚»ãƒ³ã‚µãƒ¼ãƒ‡ãƒ¼ã‚¿åˆ†æž
+#aspberry Pi 3 æ¸©åº¦ã‚»ãƒ³ã‚µãƒ¼
+#æº–å‚™ãŒå‡ºæ¥ã‚Œã°èª²é¡Œã¯å®Œäº†
 
