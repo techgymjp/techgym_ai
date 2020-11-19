@@ -2,15 +2,12 @@
 #リアルタイム画像認識
 #
 
-from darkflow.net.build import TFNet
-import cv2
+import torch
+from IPython.display import Image, clear_output  # to display images
 
-options = {"model": "cfg/yolo.cfg", "load": "bin/yolo.weights", "threshold": 0.1}
+clear_output()
+print('Setup complete. Using torch %s %s' % (torch.__version__, torch.cuda.get_device_properties(0) if torch.cuda.is_available() else 'CPU'))
 
-tfnet = TFNet(options)
+#!python detect.py --weights yolov5s.pt --img 640 --conf 0.25 --source data/images/
 
-imgcv = cv2.imread("./sample_img/sample_dog.jpg")
-result = tfnet.return_predict(imgcv)
-print(result)
-
-
+#Image(filename='runs/detect/exp/zidane.jpg', width=600)

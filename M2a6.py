@@ -57,7 +57,7 @@ model.compile(optimizer="sgd", loss="categorical_crossentropy", metrics=["accura
 history = model.fit(X_train, y_train, verbose=0, epochs=10)
 
 #acc、val_accのプロット
-plt.plot(history.history["acc"], label="acc", ls="-", marker="o")
+plt.plot(history.history["accuracy"], label="acc", ls="-", marker="o")
 plt.ylabel("accuracy")
 plt.xlabel("epoch")
 plt.legend(loc="best")

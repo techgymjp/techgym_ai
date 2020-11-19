@@ -1,25 +1,34 @@
 #Tech-Gym-13-25-A
 #リアルタイム画像認識
 
-import cv2
 import numpy as np
+import cv2
 
-# Webカメラから入力を開始
-cap = cv2.VideoCapture(0)
+# 動画ファイルを開く
+video = cv2.VideoCapture('./Dogs10820.mp4')
+
+# PCに接続されたカメラの映像を表示する場合
+#video = cv2.VideoCapture(0)
+
+if not video.isOpened():
+    raise RuntimeError
+
+cv2.namedWindow('frame', cv2.WINDOW_AUTOSIZE)
 
 while True:
-    # カメラの画像を読み込む
-    _, frame = cap.read()
-    
-    # 画像を縮小表示する
-    frame = cv2.resize(frame, (500,300))
-    
-    # ウィンドウに画像を出力
-    cv2.imshow('OpenCV Web Camera', frame)
-    
-    # ESCかEnterキーが押されたらループを抜ける
-    k = cv2.waitKey(1) # 1msec確認
-    if k == 27 or k == 13: break
 
-cap.release() # カメラを解放
-cv2.destroyAllWindows() # ウィンドウを破棄
+    ok, frame = video.read()
+
+    if not ok:
+        break
+
+    cv2.imshow('frame', frame)
+
+    key_wait = int(1000 / 30)
+    key = cv2.waitKey(key_wait)
+
+    if key == ord('q'):
+        break
+
+video.release()
+cv2.destroyAllWindows()

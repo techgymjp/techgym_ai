@@ -10,23 +10,10 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from PIL import Image
     
-def download():
-    url = "http://www.vision.caltech.edu/Image_Datasets/Caltech101/101_ObjectCategories.tar.gz"
-    title = "101_ObjectCategories.tar.gz"
-    urllib.request.urlretrieve(url,"{0}".format(title))
-
-def tar_ex():
-    title = "101_ObjectCategories.tar.gz"
-    tar = tarfile.open(title)
-    tar.extractall()
-    tar.close()
-    
 #ファイルの準備
 title = "101_ObjectCategories.tar.gz"
 if not os.path.exists(title):
-    print(title + " DOWNLOAD.")
-    download()
-    tar_ex()
+    print("PLEASE " + title + " DOWNLOAD.")
 else :
     print(title + " EXIST.")
 
@@ -36,7 +23,7 @@ categories = ["chair","camera","butterfly","elephant","flamingo"]
 nb_classes = len(categories)
 
 # 画像サイズを指定
-image_w = 64 
+image_w = 64
 image_h = 64
 pixels = image_w * image_h * 3
 

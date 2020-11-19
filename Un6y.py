@@ -3,7 +3,7 @@
 #手書き文字データ:モデル保存
 
 from sklearn import datasets, svm
-from sklearn.externals import joblib
+import joblib
 from sklearn.metrics import accuracy_score
 
 # アヤメのサンプルデータを読み込む

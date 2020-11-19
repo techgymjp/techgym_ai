@@ -83,7 +83,7 @@ for OPT in OPT_list:
     acc.append(score[1])
 
     #acc、val_accのプロット
-    plt.plot(history.history["acc"], label="acc_"+OPT, ls="-", marker="o", color=OPT_color[OPT])
+    plt.plot(history.history["accuracy"], label="acc_"+OPT, ls="-", marker="o", color=OPT_color[OPT])
     plt.ylabel("accuracy")
     plt.xlabel("epoch")
     plt.legend(loc="best")

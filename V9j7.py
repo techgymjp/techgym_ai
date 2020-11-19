@@ -16,7 +16,7 @@ image_w = 64
 image_h = 64
 
 # データをロード
-X_train, X_test, y_train, y_test = np.load("./image/5obj.npy")
+X_train, X_test, y_train, y_test = np.load("./image/5obj.npy",allow_pickle=True)
 
 # データを正規化する
 X_train = X_train.astype("float") / 256
