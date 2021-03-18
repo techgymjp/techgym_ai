@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body %}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="row">
+            <ul class="col s12">
+                {% for message in messages %}
+                	<li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endwith %}
+
+<div class="row">
+    <div class="col s8 offset-s2">
+        <form id="upload_form" action="/" method="post" enctype="multipart/form-data">
+            <div class="file-field input-field row">
+                <div class="btn col s2">
+                    <span>ファイルを選択</span>
+                    <input type="file" name="file">
+                </div>
+                <div class="file-path-wrapper col s8">
+                    <input class="file-path validate" placeholder="花の画像を選択してください" type="text">
+                </div>
+                <div class="col s2">
+                    <button class="btn waves-effect waves-light blue" type="submit">表示</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
