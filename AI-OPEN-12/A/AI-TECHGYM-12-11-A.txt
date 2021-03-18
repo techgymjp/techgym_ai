@@ -1,0 +1,10 @@
+#techgym-12-11-A
+
+#Google AutoML
+https://console.cloud.google.com
+
+#学習データがあるフォルダ
+flowers.zip
+
+#オンライン予測をテストするデータ
+upload_test_flowers

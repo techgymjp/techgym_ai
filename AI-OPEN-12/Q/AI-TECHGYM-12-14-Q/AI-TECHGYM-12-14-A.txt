@@ -1,0 +1,27 @@
+#techgym-12-14-A
+
+#デプロイ
+runtime.txtファイルを作成する
+python-3.7.9
+
+$ heroku login --interactive
+
+$ heroku create techgymflower
+
+$ git init
+$ heroku git:remote -a techgymflower
+
+$ heroku buildpacks:set heroku/python
+
+$ heroku addons:create heroku-postgresql:hobby-dev
+
+heroku config:set GOOGLE_CREDENTIALS="$(< /PATH/TO/credentials.json)"
+
+.profile ファイルを作成する
+echo ${GOOGLE_CREDENTIALS} > /app/google-credentials.json
+
+heroku config:set GOOGLE_APPLICATION_CREDENTIALS=/app/google-credentials.json
+
+$ git add .
+$ git commit -m "first deploy"
+$ git push heroku master

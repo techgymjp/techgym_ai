@@ -1,0 +1,1 @@
+web gunicorn AI-TECHGYM-12-10-A:fl_main --log-file=-

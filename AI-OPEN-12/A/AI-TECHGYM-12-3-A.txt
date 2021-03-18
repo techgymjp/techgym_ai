@@ -1,0 +1,19 @@
+#techgym-AI-12-3-A
+
+%load_ext sql
+
+%sql postgresql://postgres:<password>@localhost/test
+        
+%%sql
+select * from users;
+
+result = _
+
+type(result)
+
+result.keys
+
+import pandas as pd
+
+df = pd.DataFrame(result, columns=result.keys)
+display(df)

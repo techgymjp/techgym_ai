@@ -1,0 +1,34 @@
+#techgym-AI-12-2-A
+
+#指定フォルダを使用するための初期化
+$ mkdir postgres
+$ initdb -D ./postgres -U postgres -E utf8 -W
+入力を求められるので、データベースサーバのパスワードを設定する
+
+#データベースサーバを起動する
+$ pg_ctl start -D ./postgres/
+
+#データベースにアクセスする
+$ psql -d postgres -U postgres -W
+
+#対話モードに入るので、データベースを作成してアクセスする
+postgres=# create database test;
+postgres=# \c test
+
+#プレフィックスがtest=#になっていることを確認して、テーブルを作成する
+test=# create table users(id serial primary key, name text, age integer);
+
+#レコードを追加する
+test=# insert into users(name, age) values('Fujinaga', 27);
+tests=# insert into users(name, age) values('Techgym', 2);
+tests=# insert into users(name, age) values('Nakamura', 30);
+tests=# insert into users(name, age) values('Okano', 25);
+
+#追加したレコードを確認する
+test=# select *from users;
+
+#操作終了
+test=# \q
+
+#データベースサーバを終了する
+$ pg_ctl stop -D ./postgres/
