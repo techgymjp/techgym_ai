@@ -110,13 +110,12 @@ df1 = df1.drop(['Work Rate','Preferred Foot','Real Face','Position','Nationality
 target = df1.Overall
 df2 = df1.drop(['Overall'], axis = 1)
 
+#One Hot Encoding
+df2 = pd.get_dummies(df2)
+
 #データ分割
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(df2, target, test_size=0.2)
-
-#One Hot Encoding
-X_train = pd.get_dummies(X_train)
-X_test = pd.get_dummies(X_test)
 
 #モデル予測値
 model = LinearRegression()
