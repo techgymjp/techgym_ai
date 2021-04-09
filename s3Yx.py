@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-1-11-A-1
+#AI-TECHGYM-1-11-A-1
 #自然言語処理
 
 #インポート
@@ -9,12 +9,12 @@ import zipfile
 import re
 
 #ファイルダウンロード
-url = 'https://www.aozora.gr.jp/cards/001847/files/57347_ruby_57225.zip'
-zip = '57347_ruby_57225.zip'
-urllib.request.urlretrieve(url, zip)
+my_url = 'https://www.aozora.gr.jp/cards/001847/files/57347_ruby_57225.zip'
+my_zip = '57347_ruby_57225.zip'
+urllib.request.urlretrieve(my_url, my_zip)
 
 # ダウンロードしたzipの解凍
-with zipfile.ZipFile(zip, 'r') as myzip:
+with zipfile.ZipFile(my_zip, 'r') as myzip:
     myzip.extractall()
     # 解凍後のファイルからデータ読み込み
     for myfile in myzip.infolist():
@@ -29,11 +29,11 @@ text = re.split('底本：',text)[0]   # フッタ部分の除去
 text = text.replace('|', '')        # | の除去
 text = re.sub('《.+?》', '', text)  # ルビの削除
 text = re.sub('［＃.+?］', '',text) # 入力注の削除
-text = re.sub('\n\n', '\n', text)   # 空行の削除
+text = re.sub('\r\n', '\n', text)   # 空行の削除
 text = re.sub('\r', '', text)
 
 outnum = 50
-# 頭の100文字の表示 
+# 頭の50文字の表示
 print(text[:outnum])
 print("…")
 # 後ろの100文字の表示 
