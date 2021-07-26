@@ -13,7 +13,7 @@ hand = {'性別'  :['男性','男性','女性','男性','女性','男性','女�
 hand_df1 = pd.DataFrame(hand)
 
 #index,columnsをつける
-hand_df1.columns = [feature1]
+hand_df1.columns = feature1
 hand_df1.columns.names = ['feature']
 
 #必要であれば表示して確認する
