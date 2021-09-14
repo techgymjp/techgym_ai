@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-1-4-A-3
+#AI-TECHGYM-1-4-A-3
 #教師なし学習 k-mean法
 
 # データ加工・処理・分析ライブラリ
@@ -32,13 +32,13 @@ kmeans.fit(shoppers_sub)
 # クラスター番号をpandasのSeriesオブジェクトに変換
 labels = pd.Series(kmeans.labels_, name='cluster_number')
 
-# 金融機関のデータにクラスター番号のデータを結合
+# データにクラスター番号のデータを結合
 shoppers_with_cluster = pd.concat([shoppers, labels], axis=1)
 
 # 分割のための区切りを設定
 bins = [0,0.2,0.4,0.6,0.8,1]
 
-# 上の区切りをもとに金融機関のデータを分割し、qcut_age変数に各データの年齢層を設定
+# 上の区切りをもとにデータを分割し、qcut_age変数に各データの年齢層を設定
 qcut_sp = pd.cut(shoppers_with_cluster.SpecialDay, bins, right=False)
 
 # クラスタ番号と年齢層を結合
@@ -51,7 +51,7 @@ display(cross_cluster_sp)
 # 分割のための区切りを設定
 bins_2 = [1,2,3,4,5,6,7,8,9]
 
-# 上の区切りをもとに金融機関のデータを分割し、qcut_age変数に各データの年齢層を設定
+# 上の区切りをもとにデータを分割し、qcut_age変数に各データの年齢層を設定
 qcut_r = pd.cut(shoppers_with_cluster.Region, bins_2, right=False)
 
 # クラスタ番号と年齢層を結合
