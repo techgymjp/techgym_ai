@@ -1,4 +1,4 @@
-﻿#AI-TECHGYM-1-10-A-2
+#AI-TECHGYM-1-10-A-2
 #自然言語処理
 
 #インポート
@@ -16,7 +16,7 @@ results = []
 lines = txt.split("\r\n")
 for i in lines:
     text_c = text.tokenize(i,wakati=True)
-    results.append(text_c)
+    results.append(list(text_c))
 
 #表示
 print(results)
