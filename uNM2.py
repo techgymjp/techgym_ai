@@ -4,8 +4,8 @@
 from keras.models import Sequential
 from keras.layers import Dense, Flatten, Activation
 from keras.layers import Conv2D, MaxPooling2D
-from keras import optimizers
-from keras.utils import to_categorical
+from tensorflow.keras import optimizers
+from tensorflow.keras.utils import to_categorical
 
 #CIFAR-10のデータセットのインポート
 
