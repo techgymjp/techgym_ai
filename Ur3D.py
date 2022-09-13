@@ -13,16 +13,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_squared_log_error
+from sklearn.preprocessing import minmax_scale
 
 #データのロード
-boston = load_boston()
+boston = pd.read_csv("BostonHousing.csv")
 
 #必要であれば表示
 #display(boston.DESCR)
 
+boston.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT','MEDV']
+
 #データフレーム
-data_boston = pd.DataFrame(boston.data, columns=boston.feature_names)
-data_boston['PRICE'] = boston.target
+data_boston = boston.drop('MEDV', axis=1)
+data_boston['PRICE'] = boston["MEDV"]
 
 #目的変数、説明変数
 x_column_list_for_multi = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT']
@@ -51,7 +54,10 @@ MSE = mean_squared_error(y_pred, y_test)
 print('RMSE (重回帰)',np.sqrt(MSE))
 
 #RMSLE
-MSLE = mean_squared_log_error(y_pred, y_test)
+#スケーリング
+y_pred_s = minmax_scale(y_pred, feature_range=(0,1))
+y_test_s = minmax_scale(y_test, feature_range=(0,1))
+MSLE = mean_squared_log_error(y_pred_s, y_test)
 print('RMSLE(重回帰)',np.sqrt(MSLE))
 
 ###ここから###
