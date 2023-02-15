@@ -15,6 +15,10 @@ if not os.path.exists(title):
     urllib.request.urlretrieve(url,"{0}".format(title))
 else :
     print(title + " EXIST.")
+    
+# stanby-jobs-200d-word2vector.bin が見つからない時はこちらをダウンロードして利用してください
+# https://drive.google.com/file/d/1uJe1vhwzoGVUqz3gYUmoeMUDOabl6ojx/view?usp=sharing
+
 
 # ダウンロード先のパスを指定
 MODEL_FILENAME = "./stanby-jobs-200d-word2vector.bin"
