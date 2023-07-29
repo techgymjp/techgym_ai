@@ -47,7 +47,7 @@ plt.show()
 
 #上位9ヶ国の選手の体重の分布
 some_countries = ['England','Germany','Spain','Argentina','France','Brazil','Italy','Columbia','Japan']
-data_countries = df.loc[df['Nationality'].isin(some_countries) & df['Weight']]
+data_countries = df.loc[df['Nationality'].isin(some_countries)
 plt.figure(figsize = (15,5))
 ax = sns.violinplot(x = data_countries['Nationality'], y = data_countries['Weight'], palette = 'Blues')
 ax.set_xlabel(xlabel = 'Countries', fontsize = 16)
