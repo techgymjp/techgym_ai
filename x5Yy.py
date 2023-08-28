@@ -9,7 +9,6 @@
 
 #データの準備
 import pandas as pd
-from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 
 #学習モデル
@@ -24,7 +23,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error, r2_score
 
 # Housingデータセットを読み込み
-boston = load_boston()
+boston = pd.read_csv(“BostonHousing.csv”) 
 
 # DataFrameにデータを格納
 X = pd.DataFrame(boston.data, columns=boston.feature_names)
