@@ -9,6 +9,7 @@
 
 #データの準備
 import pandas as pd
+from sklearn.datasets import fetch_california_housing
 from sklearn.model_selection import train_test_split
 
 #学習モデル
@@ -23,13 +24,13 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, median_absolute_error, r2_score
 
 # Housingデータセットを読み込み
-boston = pd.read_csv(“BostonHousing.csv”) 
+california = fetch_california_housing()
 
 # DataFrameにデータを格納
-X = pd.DataFrame(boston.data, columns=boston.feature_names)
+X = pd.DataFrame(california.data, columns=california.feature_names)
 
 # 住宅価格の中央値（MEDV）のデータを用意
-y = pd.Series(boston.target, name='MEDV')
+y = pd.Series(california.target, name='MEDV')
 
 # 訓練データとテストデータに分ける
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=0)
