@@ -35,13 +35,13 @@ data_selected = pd.DataFrame(df, columns = selected_columns)
 
 #相関係数のヒートマップ
 plt.figure(figsize = (20,20))
-sns.heatmap(data_selected.corr(),linewidths=0.1,linecolor='black',square=True,cmap='summer')
+sns.heatmap(data_selected.corr(numeric_only=True),linewidths=0.1,linecolor='black',square=True,cmap='summer')
 plt.title('Histogram of the Dataset', fontsize = 15)
 plt.show()
 
 #年齢とレーティングの関係
 plt.figure(figsize = (15,5))
-sns.lineplot(df['Age'], df['Rating'], palette = 'Wistia')
+sns.lineplot(data=df, x='Age', y='Rating', palette = 'Wistia')
 plt.title('Age vs Rating', fontsize = 20)
 plt.show()
 
