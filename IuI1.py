@@ -8,17 +8,12 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 import seaborn as sns
 from sklearn.linear_model import LinearRegression
-from sklearn.datasets import load_boston
 
 #データのロード
-boston = load_boston()
-
-#必要であれば表示
-#display(boston.DESCR)
-
-#データフレーム
-data_boston =
-data_boston['PRICE'] =
+boston = pd.read_csv("BostonHousing.csv")
+boston.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT','MEDV']
+data_boston = boston.drop('MEDV', axis=1)
+data_boston['PRICE'] = boston["MEDV"]
 
 #データを表示
 

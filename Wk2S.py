@@ -27,7 +27,7 @@ y = data_added_dummies["取引価格（総額）"]
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3)
 
 #モデル、学習、予測(Lasso),WARNINGが出るのでtol=0.1と指定する
-lr_multi2 = Lasso(alpha=1, normalize=True, tol=0.1)
+lr_multi2 = Lasso(alpha=1, tol=0.1)
 lr_multi2.fit(X_train, y_train)
 y_pred = lr_multi2.predict(X_test)
 

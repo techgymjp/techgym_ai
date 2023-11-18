@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 import seaborn as sns
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
-from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import mean_squared_error
@@ -17,13 +16,7 @@ from sklearn.preprocessing import minmax_scale
 
 #データのロード
 boston = pd.read_csv("BostonHousing.csv")
-
-#必要であれば表示
-#display(boston.DESCR)
-
 boston.columns = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT','MEDV']
-
-#データフレーム
 data_boston = boston.drop('MEDV', axis=1)
 data_boston['PRICE'] = boston["MEDV"]
 
