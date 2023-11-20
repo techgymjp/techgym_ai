@@ -13,7 +13,7 @@ from scipy import stats
 #Jupyter Notebookの出力を小数点以下3桁に抑える
 %precision 3
 #Dataframeの出力を小数点以下3桁に抑える
-pd.set_option('precision', 3)
+pd.set_option('display.precision', 3)
 
 #データフレーム
 df = pd.read_csv('./scores400.csv')
