@@ -31,15 +31,15 @@ print('正解率(決定木)')
 #!pip install graphviz
 #!pip install dtreeviz
 
-from dtreeviz.trees import dtreeviz
+import dtreeviz
 
-viz = dtreeviz(clf, X, Y,
+viz = dtreeviz.model(clf, X, Y,
   feature_names = iris.feature_names,
   target_name = 'breed',
   class_names=[str(i) for i in iris.target_names],
   )
-
-display(viz)
+viz.view()
 
 #保存する場合
-viz.save("tree.svg")
+# viz.view().save("./tree.svg")
+
